@@ -8,9 +8,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <App>
-      Slime
-    </App>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
