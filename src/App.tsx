@@ -1,7 +1,5 @@
-const App = (): JSX.Element => (
-  <span>
-    Slime
-  </span>
-);
+import RoundScreen from './screens/RoundScreen';
+
+const App = (): JSX.Element => <RoundScreen />;
 
 export default App;
