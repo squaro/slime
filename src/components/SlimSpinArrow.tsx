@@ -1,3 +1,5 @@
+import { memo } from 'react';
 import { ReactComponent as SlimSpinArrow } from '../assets/arrows/slim-spin-arrow.svg';
 
-export default SlimSpinArrow;
+// Memoize component to prevent re-rendering
+export default memo(SlimSpinArrow);
