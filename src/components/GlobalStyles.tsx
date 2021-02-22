@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   html,
-  body {
+  body,
+  #root {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -21,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
 
-  #root {
+  .app {
     width: 100%;
     height: 100%;
     display: flex;
