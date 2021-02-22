@@ -44,6 +44,14 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index",
+      "<rootDir>/src/reportWebVitals",
+      "<rootDir>/src/service-worker",
+      "<rootDir>/src/serviceWorkerRegistration"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
