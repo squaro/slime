@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import spinLeft from '../styles/keyframes/spinLeft';
-import spinRight from '../styles/keyframes/spinRight';
-import SpinArrow from './SpinArrow';
+import spinLeft from '../../styles/keyframes/spinLeft';
+import spinRight from '../../styles/keyframes/spinRight';
+import SpinArrow from '../SpinArrow';
 
 describe('SpinArrow', (): void => {
   it('renders the spin arrow component with right direction', (): void => {

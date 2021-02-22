@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import RoundDirectionArrow from './RoundDirectionArrow';
+import RoundDirectionArrow from '../RoundDirectionArrow';
 
 describe('RoundDirectionArrow', (): void => {
   it('renders the round direction arrow component with right direction', (): void => {

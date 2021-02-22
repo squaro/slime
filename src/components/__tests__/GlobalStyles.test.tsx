@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import GlobalStyles from './GlobalStyles';
+import GlobalStyles from '../GlobalStyles';
 
 describe('GlobalStyles', (): void => {
   it('should load global styles', (): void => {

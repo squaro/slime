@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import RoundScreen from './RoundScreen';
+import RoundScreen from '../RoundScreen';
 
 describe('RoundScreen', (): void => {
   it('renders the round screen component', (): void => {
