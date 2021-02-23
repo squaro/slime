@@ -1,14 +1,15 @@
+import { useRoundState } from '../contexts/RoundContext';
 import SlimSpinArrow from './SlimSpinArrow';
 import SpinArrow from './SpinArrow';
 
-interface RoundDirectionArrowProps {
-  direction: boolean;
-}
+const RoundDirectionArrow = (): JSX.Element => {
+  const { direction } = useRoundState();
 
-const RoundDirectionArrow = ({ direction }: RoundDirectionArrowProps): JSX.Element => (
-  <SpinArrow $direction={direction}>
-    <SlimSpinArrow />
-  </SpinArrow>
-);
+  return (
+    <SpinArrow $direction={direction}>
+      <SlimSpinArrow />
+    </SpinArrow>
+  );
+};
 
 export default RoundDirectionArrow;
