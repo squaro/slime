@@ -1,12 +1,9 @@
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
-import { useRoundDispatch } from '../contexts/RoundContext';
+import { useRound } from '../contexts/RoundContext';
 
 const RoundScreen = (): JSX.Element => {
-  const dispatch = useRoundDispatch();
-
-  // Actions
-  const toggleDirection = (): void => dispatch({ type: 'TOGGLE' });
+  const { toggleDirection } = useRound();
 
   return (
     <Screen onClick={toggleDirection}>

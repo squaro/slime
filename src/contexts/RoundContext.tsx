@@ -6,6 +6,9 @@ export type RoundDispatch = React.Dispatch<RoundAction>;
 export type RoundState = {
   direction: boolean;
 };
+export type RoundContext = RoundState & {
+  toggleDirection: () => void;
+};
 
 // Contexts
 export const RoundStateContext = createContext<RoundState | undefined>(undefined);
@@ -48,7 +51,7 @@ export const RoundProvider = ({ children }: PropsWithChildren<unknown>): JSX.Ele
 };
 
 // Hooks
-export const useRoundState = (): RoundState => {
+const useRoundState = (): RoundState => {
   const state: RoundState | undefined = useContext(RoundStateContext);
 
   if (state === undefined) {
@@ -58,7 +61,7 @@ export const useRoundState = (): RoundState => {
   return state;
 };
 
-export const useRoundDispatch = (): RoundDispatch => {
+const useRoundDispatch = (): RoundDispatch => {
   const dispatch: RoundDispatch | undefined = useContext(RoundDispatchContext);
 
   if (dispatch === undefined) {
@@ -66,4 +69,17 @@ export const useRoundDispatch = (): RoundDispatch => {
   }
 
   return dispatch;
+};
+
+export const useRound = (): RoundContext => {
+  const state: RoundState = useRoundState();
+  const dispatch: RoundDispatch = useRoundDispatch();
+
+  // Bounded actions
+  const toggleDirection = (): void => dispatch({ type: 'TOGGLE' });
+
+  return {
+    ...state,
+    toggleDirection,
+  };
 };
