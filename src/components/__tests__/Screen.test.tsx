@@ -3,21 +3,10 @@ import Screen from '../Screen';
 
 describe('Screen', (): void => {
   it('renders the screen component', (): void => {
-    // Arrange
-    const screenTestId = 'screen';
-
     // Act
-    const { getByTestId } = render(<Screen data-testid={screenTestId} />);
+    render(<Screen />);
 
     // Assert
-    const screenElement = getByTestId(screenTestId);
-    expect(screenElement).toHaveStyle(`
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    `);
+    expect(document.body).toMatchSnapshot();
   });
 });

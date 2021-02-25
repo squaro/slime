@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen renders the screen component 1`] = `
+<body>
+  <div>
+    <section
+      class="sc-bdfBwQ lghxSv"
+    />
+  </div>
+</body>
+`;
