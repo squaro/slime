@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeText should load welcome text 1`] = `
+<body>
+  <div>
+    <p
+      class="sc-bdfBwQ cwXRm"
+    >
+      Press 
+      <b>
+        Start
+      </b>
+       to begin tracking
+      <br />
+      the round's direction using
+      <br />
+      an interactive arrow!
+    </p>
+  </div>
+</body>
+`;
