@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GreenButton should load button 1`] = `
+exports[`GreenButton should load green button component 1`] = `
 <body>
   <div>
     <button
