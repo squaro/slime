@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WelcomeText should load welcome text 1`] = `
+exports[`WelcomeText should load welcome text component 1`] = `
 <body>
   <div>
     <p
