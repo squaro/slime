@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GreenButton should load button 1`] = `
+<body>
+  <div>
+    <button
+      class="sc-bdfBwQ jgMquD"
+    />
+  </div>
+</body>
+`;
