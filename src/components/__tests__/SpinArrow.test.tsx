@@ -1,16 +1,41 @@
 import { render } from '@testing-library/react';
-import spinLeft from '../../styles/keyframes/spinLeft';
-import spinRight from '../../styles/keyframes/spinRight';
+import spinLeftKeyframe from '../../styles/keyframes/spinLeftKeyframe';
+import spinRightKeyframe from '../../styles/keyframes/spinRightKeyframe';
 import SpinArrow from '../SpinArrow';
 
+// Test components
 const TestSVG = (): JSX.Element => (
   <svg>
     <path />
   </svg>
 );
 
+// Test variables
+const spinLeftAnimation = `animation: ${spinLeftKeyframe.getName()} infinite 7s linear`;
+const spinRightAnimation = `animation: ${spinRightKeyframe.getName()} infinite 7s linear`;
+const spinArrowLeftTransform = `transform: scaleX(-1) translateX(-100%)`;
+
 describe('SpinArrow', (): void => {
-  it('renders the spin arrow component with right direction', (): void => {
+  it('renders the spin arrow component with default props', (): void => {
+    // Arrange
+    const spinArrowTestId = 'spin-arrow';
+
+    // Act
+    const { getByTestId } = render(
+      <SpinArrow data-testid={spinArrowTestId}>
+        <TestSVG />
+      </SpinArrow>
+    );
+
+    // Assert
+    const spinArrowElement = getByTestId(spinArrowTestId);
+    const svgPathElements = spinArrowElement.getElementsByTagName('path');
+    expect(spinArrowElement).not.toHaveStyle(spinLeftAnimation);
+    expect(spinArrowElement).toHaveStyle(spinRightAnimation);
+    expect(svgPathElements[0]).not.toHaveStyle(spinArrowLeftTransform);
+  });
+
+  it('renders the spin arrow component spinning to the right direction', (): void => {
     // Arrange
     const direction = true; // right
     const spinArrowTestId = 'spin-arrow';
@@ -25,11 +50,12 @@ describe('SpinArrow', (): void => {
     // Assert
     const spinArrowElement = getByTestId(spinArrowTestId);
     const svgPathElements = spinArrowElement.getElementsByTagName('path');
-    expect(spinArrowElement).toHaveStyle(`animation: ${spinRight.getName()} infinite 7s linear;`);
-    expect(svgPathElements[0]).not.toHaveStyle(`transform: scaleX(-1) translateX(-100%)`);
+    expect(spinArrowElement).not.toHaveStyle(spinLeftAnimation);
+    expect(spinArrowElement).toHaveStyle(spinRightAnimation);
+    expect(svgPathElements[0]).not.toHaveStyle(spinArrowLeftTransform);
   });
 
-  it('renders the spin arrow component with left direction', (): void => {
+  it('renders the spin arrow component spinning to the left direction', (): void => {
     // Arrange
     const spinArrowTestId = 'spin-arrow';
     const direction = false; // left
@@ -44,7 +70,8 @@ describe('SpinArrow', (): void => {
     // Assert
     const spinArrowElement = getByTestId(spinArrowTestId);
     const svgPathElements = spinArrowElement.getElementsByTagName('path');
-    expect(spinArrowElement).toHaveStyle(`animation: ${spinLeft.getName()} infinite 7s linear;`);
-    expect(svgPathElements[0]).toHaveStyle(`transform: scaleX(-1) translateX(-100%)`);
+    expect(spinArrowElement).toHaveStyle(spinLeftAnimation);
+    expect(spinArrowElement).not.toHaveStyle(spinRightAnimation);
+    expect(svgPathElements[0]).toHaveStyle(spinArrowLeftTransform);
   });
 });
