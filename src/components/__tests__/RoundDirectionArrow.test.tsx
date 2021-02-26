@@ -1,22 +1,30 @@
 import { render } from '@testing-library/react';
-import unoColors from '../../styles/keyframes/unoColors';
+import unoColorsAnimation from '../../styles/animations/unoColorsAnimation';
+import unoColorsKeyframe from '../../styles/keyframes/unoColorsKeyframe';
 import RoundDirectionArrow from '../RoundDirectionArrow';
 
+// Test components
 const TestSVG = (): JSX.Element => (
   <svg>
     <path />
   </svg>
 );
 
+// Test variables
+const colorAnimation = `animation: ${unoColorsKeyframe.getName()} infinite 21s ease-in-out`;
+
 describe('RoundDirectionArrow', (): void => {
-  it('renders the round direction arrow component', (): void => {
+  it('renders the round direction arrow component without color animation', (): void => {
     // Arrange
     const direction = true; // right
     const roundDirectionArrowTestId = 'round-direction-arrow';
 
     // Act
     const { getByTestId } = render(
-      <RoundDirectionArrow $direction={direction} data-testid={roundDirectionArrowTestId}>
+      <RoundDirectionArrow
+        $direction={direction}
+        data-testid={roundDirectionArrowTestId}
+      >
         <TestSVG />
       </RoundDirectionArrow>
     );
@@ -28,6 +36,32 @@ describe('RoundDirectionArrow', (): void => {
       width: 90vmin;
       height: 90vmin;
     `);
-    expect(svgPathElements[0]).toHaveStyle(`animation: ${unoColors.getName()} infinite 21s ease-in-out;`);
+    expect(svgPathElements[0]).not.toHaveStyle(colorAnimation);
+  });
+
+  it('renders the round direction arrow component with color animation', (): void => {
+    // Arrange
+    const direction = true; // right
+    const roundDirectionArrowTestId = 'round-direction-arrow';
+
+    // Act
+    const { getByTestId } = render(
+      <RoundDirectionArrow
+        $direction={direction}
+        colorAnimation={unoColorsAnimation}
+        data-testid={roundDirectionArrowTestId}
+      >
+        <TestSVG />
+      </RoundDirectionArrow>
+    );
+
+    // Assert
+    const roundDirectionArrowElement = getByTestId(roundDirectionArrowTestId);
+    const svgPathElements = roundDirectionArrowElement.getElementsByTagName('path');
+    expect(roundDirectionArrowElement).toHaveStyle(`
+      width: 90vmin;
+      height: 90vmin;
+    `);
+    expect(svgPathElements[0]).toHaveStyle(colorAnimation);
   });
 });

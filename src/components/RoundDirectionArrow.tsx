@@ -1,15 +1,20 @@
-import styled from 'styled-components';
-import unoColors from '../styles/keyframes/unoColors';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import SpinArrow from './SpinArrow';
 
-// TODO: Move animation to own file
-const RoundDirectionArrow = styled(SpinArrow)`
+interface RoundDirectionArrowProps {
+  colorAnimation?: FlattenSimpleInterpolation;
+}
+
+const RoundDirectionArrow = styled(SpinArrow)<RoundDirectionArrowProps>`
   width: 90vmin;
   height: 90vmin;
 
-  & svg path {
-    animation: ${unoColors} infinite 21s ease-in-out;
-  }
+  // Color animation
+  ${({ colorAnimation }) => colorAnimation && css`
+    & svg path {
+      animation: ${colorAnimation};
+    }
+  `}
 `;
 
 export default RoundDirectionArrow;

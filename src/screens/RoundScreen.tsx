@@ -2,8 +2,10 @@ import { useState } from 'react';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
 import SlimSpinArrow from '../components/SlimSpinArrow';
+import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
 
 // TODO: Test state & actions
+// TODO: Test round direction arrow props
 const RoundScreen = (): JSX.Element => {
   // Store direction value
   //  * Left = false
@@ -15,7 +17,7 @@ const RoundScreen = (): JSX.Element => {
 
   return (
     <Screen onClick={toggleDirection}>
-      <RoundDirectionArrow $direction={direction}>
+      <RoundDirectionArrow $direction={direction} colorAnimation={unoColorsAnimation}>
         <SlimSpinArrow />
       </RoundDirectionArrow>
     </Screen>
