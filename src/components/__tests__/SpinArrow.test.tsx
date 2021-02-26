@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import spinLeft from '../../styles/keyframes/spinLeft';
 import spinRight from '../../styles/keyframes/spinRight';
