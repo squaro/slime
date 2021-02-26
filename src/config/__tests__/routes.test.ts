@@ -6,4 +6,10 @@ describe('routes', (): void => {
     expect(routes).toHaveProperty('home');
     expect(routes.home).toEqual('/');
   });
+
+  it('should contain the "round" property pointing to "/round"', (): void => {
+    // Assert
+    expect(routes).toHaveProperty('round');
+    expect(routes.round).toEqual('/round');
+  });
 });
