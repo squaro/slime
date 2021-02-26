@@ -1,26 +1,36 @@
 import styled, { css } from 'styled-components';
-import spinLeft from '../styles/keyframes/spinLeft';
-import spinRight from '../styles/keyframes/spinRight';
-import unoColors from '../styles/keyframes/unoColors';
+import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
+import spinAnimation from '../styles/animations/spinAnimation';
 
 interface SpinArrowProps {
+  $animateColor?: boolean;
   $direction: boolean;
+  $spin?: boolean;
 }
 
-// TODO: Move animations to own file
-const SpinArrow = styled.div`
+// TODO: Determine color animation from theme
+const SpinArrow = styled.div<SpinArrowProps>`
   width: 90vmin;
   height: 90vmin;
 
-  ${({ $direction }: SpinArrowProps) => css`
-    animation: ${$direction ? spinRight : spinLeft} infinite 7s linear;
+  // Spin animation
+  ${({ $direction, $spin }) => $spin && css`
+    animation: ${spinAnimation($direction)};
+  `}
 
+  // Color animation
+  ${({ $animateColor }) => $animateColor && css`
     & svg path {
-      animation: ${unoColors} infinite 21s ease-in-out;
+      animation: ${unoColorsAnimation};
+    }
+  `}
 
-      // Assuming that the arrows are to the right by default,
-      // only the left arrow's path is transformed
-      transform: ${$direction ? 'scaleX(-1) translateX(-100%)' : 'none'};
+  // Transform direction
+  ${({ $direction }) => !$direction && css`
+    // Assuming that the arrows are to the right by default,
+    // only the left arrow's path is transformed
+    & svg path {
+      transform: scaleX(-1) translateX(-100%);
     }
   `}
 `;

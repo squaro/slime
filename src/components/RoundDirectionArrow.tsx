@@ -6,7 +6,7 @@ interface RoundDirectionArrowProps {
 }
 
 const RoundDirectionArrow = ({ direction }: RoundDirectionArrowProps): JSX.Element => (
-  <SpinArrow $direction={direction}>
+  <SpinArrow $animateColor $spin $direction={direction}>
     <SlimSpinArrow />
   </SpinArrow>
 );

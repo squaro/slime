@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import spinLeft from '../../styles/keyframes/spinLeft';
-import spinRight from '../../styles/keyframes/spinRight';
+import spinLeft from '../../styles/keyframes/spinLeftKeyframe';
+import spinRight from '../../styles/keyframes/spinRightKeyframe';
 import SpinArrow from '../SpinArrow';
 
 describe('SpinArrow', (): void => {
