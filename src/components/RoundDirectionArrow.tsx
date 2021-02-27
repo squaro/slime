@@ -1,14 +1,15 @@
-import SlimSpinArrow from './SlimSpinArrow';
+import styled from 'styled-components';
+import unoColors from '../styles/keyframes/unoColors';
 import SpinArrow from './SpinArrow';
 
-interface RoundDirectionArrowProps {
-  direction: boolean;
-}
+// TODO: Move animation to own file
+const RoundDirectionArrow = styled(SpinArrow)`
+  width: 90vmin;
+  height: 90vmin;
 
-const RoundDirectionArrow = ({ direction }: RoundDirectionArrowProps): JSX.Element => (
-  <SpinArrow $direction={direction}>
-    <SlimSpinArrow />
-  </SpinArrow>
-);
+  & svg path {
+    animation: ${unoColors} infinite 21s ease-in-out;
+  }
+`;
 
 export default RoundDirectionArrow;

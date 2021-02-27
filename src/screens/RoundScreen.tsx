@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
+import SlimSpinArrow from '../components/SlimSpinArrow';
 
+// TODO: Test state & actions
 const RoundScreen = (): JSX.Element => {
   // Store direction value
   //  * Left = false
@@ -13,7 +15,9 @@ const RoundScreen = (): JSX.Element => {
 
   return (
     <Screen onClick={toggleDirection}>
-      <RoundDirectionArrow direction={direction} />
+      <RoundDirectionArrow $direction={direction}>
+        <SlimSpinArrow />
+      </RoundDirectionArrow>
     </Screen>
   );
 };
