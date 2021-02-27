@@ -20,7 +20,9 @@ const SpinArrow = styled.div`
 
       // Assuming that the arrows are to the right by default,
       // only the left arrow's path is transformed
-      transform: ${$direction ? 'scaleX(-1) translateX(-100%)' : 'none'};
+      ${!$direction && css`
+        transform: scaleX(-1) translateX(-100%);
+      `}
     }
   `}
 `;
