@@ -7,7 +7,7 @@ describe('RoundScreen', (): void => {
     const { getByText } = render(<RoundScreen />);
 
     // Assert
-    const textElement = getByText(/slim-spin-arrow.svg/i);
-    expect(textElement).toBeInTheDocument();
+    const arrowSvgElement = getByText(/slim-spin-arrow.svg/i);
+    expect(arrowSvgElement).toBeInTheDocument();
   });
 });

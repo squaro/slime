@@ -1,14 +1,20 @@
-import SlimSpinArrow from './SlimSpinArrow';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import SpinArrow from './SpinArrow';
 
 interface RoundDirectionArrowProps {
-  direction: boolean;
+  colorAnimation?: FlattenSimpleInterpolation;
 }
 
-const RoundDirectionArrow = ({ direction }: RoundDirectionArrowProps): JSX.Element => (
-  <SpinArrow $direction={direction}>
-    <SlimSpinArrow />
-  </SpinArrow>
-);
+const RoundDirectionArrow = styled(SpinArrow)<RoundDirectionArrowProps>`
+  width: 90vmin;
+  height: 90vmin;
+
+  // Color animation
+  ${({ colorAnimation }) => colorAnimation && css`
+    & svg path {
+      animation: ${colorAnimation};
+    }
+  `}
+`;
 
 export default RoundDirectionArrow;
