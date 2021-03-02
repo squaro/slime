@@ -8,6 +8,7 @@ import SlimSpinArrow from '../components/SlimSpinArrow';
 import StartButton from '../components/StartButton';
 import TapScreenImage from '../components/TapScreenImage';
 import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
+import wakeLock from '../utils/wakeLock';
 
 // TODO: Test state & actions
 // TODO: Test round direction arrow props
@@ -21,6 +22,11 @@ const RoundScreen = (): JSX.Element => {
   
   // Actions
   const closeModal = (): void => setIsOpen(false);
+  const enableWakeLock = (): Promise<void> => wakeLock.enable();
+  const start = async (): Promise<void> => {
+    await enableWakeLock();
+    closeModal();
+  };
   const toggleDirection = (): void => {
     // TODO: Analyze if the modal can be moved outside the screen component to
     // avoid having to check if the instructions (or any) modal is open
@@ -38,7 +44,7 @@ const RoundScreen = (): JSX.Element => {
         <ModalTitle>Instructions</ModalTitle>
         <ModalText>Tap <b>anywhere</b> in the screen to change the arrow's direction.</ModalText>
         <TapScreenImage />
-        <StartButton onClick={closeModal}>
+        <StartButton onClick={start}>
           Got it!
         </StartButton>
       </InstructionsModal>
