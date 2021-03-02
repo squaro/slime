@@ -1,6 +1,7 @@
 {
   "name": "slime",
   "version": "1.0.0",
+  "homepage": "https://squaro.github.io/slime/",
   "private": true,
   "scripts": {
     "start": "react-scripts start",

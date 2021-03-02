@@ -1,0 +1,35 @@
+name: '[CD] Deploy to GitHub Pages'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Deploy
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Run tests
+        run: yarn test --ci --watchAll=false
+      - name: Build source code
+        run: yarn build
+      - name: Retrieve application version
+        id: application-version
+        uses: martinbeentjes/npm-get-version-action@master
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          build_dir: build
+          commit_message: v${{steps.application-version.outputs.current-version}}
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
