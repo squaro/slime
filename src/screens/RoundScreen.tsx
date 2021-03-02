@@ -22,6 +22,8 @@ const RoundScreen = (): JSX.Element => {
   // Actions
   const closeModal = (): void => setIsOpen(false);
   const toggleDirection = (): void => {
+    // TODO: Analyze if the modal can be moved outside the screen component to
+    // avoid having to check if the instructions (or any) modal is open
     if (!isOpen) {
       setDirection(!direction);
     }
