@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import InstructionsModal from '../components/InstructionsModal';
-import ModalText from '../components/ModalText';
-import ModalTitle from '../components/ModalTitle';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
 import SlimSpinArrow from '../components/SlimSpinArrow';
-import StartButton from '../components/StartButton';
-import TapScreenImage from '../components/TapScreenImage';
 import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
 import wakeLock from '../utils/wakeLock';
 
@@ -40,14 +36,7 @@ const RoundScreen = (): JSX.Element => {
       <RoundDirectionArrow $direction={direction} colorAnimation={unoColorsAnimation}>
         <SlimSpinArrow />
       </RoundDirectionArrow>
-      <InstructionsModal isOpen={isOpen}>
-        <ModalTitle>Instructions</ModalTitle>
-        <ModalText>Tap <b>anywhere</b> in the screen to change the arrow's direction.</ModalText>
-        <TapScreenImage />
-        <StartButton onClick={start}>
-          Got it!
-        </StartButton>
-      </InstructionsModal>
+      <InstructionsModal isOpen={isOpen} onClose={start} />
     </Screen>
   );
 };
