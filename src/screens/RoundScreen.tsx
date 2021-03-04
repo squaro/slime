@@ -30,7 +30,7 @@ const RoundScreen = (): JSX.Element => {
   };
 
   return (
-    <Screen onClick={toggleDirection}>
+    <Screen onClick={toggleDirection} data-testid="round-screen">
       <RoundDirectionArrow direction={direction} />
       <InstructionsModal isOpen={isOpen} onClose={start} />
     </Screen>
