@@ -21,16 +21,6 @@ const GlobalStyles = createGlobalStyle`
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
-
-  .app {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-  }
 `;
 
 export default GlobalStyles;

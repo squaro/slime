@@ -1,18 +1,36 @@
-import { render } from '@testing-library/react';
-import App from '../App';
+import { render, screen } from '@testing-library/react';
+import App, { Wrapper } from '../App';
 
-describe('App', (): void => {
-  it('renders the application', (): void => {
+describe('<Wrapper />', (): void => {
+  it('renders the component successfully', (): void => {
     // Arrange
-    const className = 'app';
+    const testId = 'wrapper';
+
+    // Act
+    render(<Wrapper data-testid={testId} />);
+
+    // Assert
+    expect(screen.getByTestId(testId)).toHaveStyle(`
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    `);
+  });
+});
+
+describe('<App />', (): void => {
+  it('renders the Round Screen successfully', (): void => {
+    // Arrange
+    const testId = 'round-screen';
 
     // Act
     render(<App />);
 
     // Assert
-    const appElement = document.getElementsByClassName(className)[0];
-    expect(appElement).not.toBeUndefined();
-    expect(appElement).toHaveProperty('className');
-    expect(appElement.className).toEqual(className);
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
   });
 });
