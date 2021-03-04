@@ -21,19 +21,15 @@ const RoundScreen: React.FunctionComponent = () => {
     await enableWakeLock();
     closeModal();
   };
-  const toggleDirection = (): void => {
-    // TODO: Analyze if the modal can be moved outside the screen component to
-    // avoid having to check if the instructions (or any) modal is open
-    if (!isOpen) {
-      setDirection(!direction);
-    }
-  };
+  const toggleDirection = (): void => setDirection(!direction);
 
   return (
-    <Screen onClick={toggleDirection} data-testid="round-screen">
-      <RoundDirectionArrow direction={direction} />
+    <React.Fragment>
+      <Screen onClick={toggleDirection} data-testid="round-screen">
+        <RoundDirectionArrow direction={direction} />
+      </Screen>
       <InstructionsModal isOpen={isOpen} onClose={start} />
-    </Screen>
+    </React.Fragment>
   );
 };
 
