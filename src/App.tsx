@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,7 +24,7 @@ export const Wrapper = styled.div`
 // TODO: Test GlobalStyles component
 // TODO: Test ModalProvider component
 // TODO: Analyze if the router will be needed further
-const App = (): JSX.Element => (
+const App: React.FunctionComponent = () => (
   <ModalProvider backgroundComponent={ModalBackground}>
     <GlobalStyles />
     <Wrapper>

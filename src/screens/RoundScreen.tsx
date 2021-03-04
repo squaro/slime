@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import InstructionsModal from '../components/InstructionsModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
@@ -7,7 +7,7 @@ import wakeLock from '../utils/wakeLock';
 // TODO: Test state & actions
 // TODO: Test round direction arrow props
 // TODO: Test instructions modal
-const RoundScreen = (): JSX.Element => {
+const RoundScreen: React.FunctionComponent = () => {
   // Store direction value
   //  * Left = false
   //  * Right = true (default)

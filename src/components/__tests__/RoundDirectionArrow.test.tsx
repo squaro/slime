@@ -1,10 +1,11 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import unoColorsKeyframe from '../../styles/keyframes/unoColorsKeyframe';
 import RoundDirectionArrow, { Wrapper } from '../RoundDirectionArrow';
 
 describe('<Wrapper />', (): void => {
   // Test components
-  const TestSVG = (): JSX.Element => (
+  const TestSVG: React.FunctionComponent = () => (
     <svg>
       <path data-testid="path"/>
     </svg>

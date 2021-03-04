@@ -1,10 +1,11 @@
+import React from 'react';
 import { render } from '@testing-library/react';
 import spinLeftKeyframe from '../../styles/keyframes/spinLeftKeyframe';
 import spinRightKeyframe from '../../styles/keyframes/spinRightKeyframe';
 import SpinArrow from '../SpinArrow';
 
 // Test components
-const TestSVG = (): JSX.Element => (
+const TestSVG: React.FunctionComponent = () => (
   <svg>
     <path />
   </svg>
