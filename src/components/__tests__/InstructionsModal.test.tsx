@@ -17,7 +17,7 @@ describe('<Wrapper />', (): void => {
     );
 
     // Assert
-    expect(screen.queryByTestId(testId)).not.toBeInTheDocument()
+    expect(screen.queryByTestId(testId)).not.toBeInTheDocument();
   });
 
   it('renders the component successfully', (): void => {
