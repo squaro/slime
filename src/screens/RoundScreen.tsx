@@ -2,8 +2,6 @@ import { useState } from 'react';
 import InstructionsModal from '../components/InstructionsModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
-import SlimSpinArrow from '../components/SlimSpinArrow';
-import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
 import wakeLock from '../utils/wakeLock';
 
 // TODO: Test state & actions
@@ -33,9 +31,7 @@ const RoundScreen = (): JSX.Element => {
 
   return (
     <Screen onClick={toggleDirection}>
-      <RoundDirectionArrow $direction={direction} colorAnimation={unoColorsAnimation}>
-        <SlimSpinArrow />
-      </RoundDirectionArrow>
+      <RoundDirectionArrow direction={direction} />
       <InstructionsModal isOpen={isOpen} onClose={start} />
     </Screen>
   );

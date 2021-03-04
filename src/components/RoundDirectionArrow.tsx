@@ -1,20 +1,27 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
+import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
+import SlimSpinArrow from './SlimSpinArrow';
 import SpinArrow from './SpinArrow';
 
-interface RoundDirectionArrowProps {
-  colorAnimation?: FlattenSimpleInterpolation;
-}
-
-const RoundDirectionArrow = styled(SpinArrow)<RoundDirectionArrowProps>`
+export const Wrapper = styled(SpinArrow)`
   width: 90vmin;
   height: 90vmin;
 
   // Color animation
-  ${({ colorAnimation }) => colorAnimation && css`
-    & svg path {
-      animation: ${colorAnimation};
-    }
-  `}
+  & svg path {
+    animation: ${unoColorsAnimation};
+  }
 `;
+
+interface RoundDirectionArrowProps {
+  direction: boolean;
+}
+
+const RoundDirectionArrow: React.FunctionComponent<RoundDirectionArrowProps> = ({ direction }) => (
+  <Wrapper $direction={direction} data-testid="round-direction-arrow">
+    <SlimSpinArrow />
+  </Wrapper>
+);
 
 export default RoundDirectionArrow;

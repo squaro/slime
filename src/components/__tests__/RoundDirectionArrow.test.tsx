@@ -1,67 +1,49 @@
-import { render } from '@testing-library/react';
-import unoColorsAnimation from '../../styles/animations/unoColorsAnimation';
+import { render, screen } from '@testing-library/react';
 import unoColorsKeyframe from '../../styles/keyframes/unoColorsKeyframe';
-import RoundDirectionArrow from '../RoundDirectionArrow';
+import RoundDirectionArrow, { Wrapper } from '../RoundDirectionArrow';
 
-// Test components
-const TestSVG = (): JSX.Element => (
-  <svg>
-    <path />
-  </svg>
-);
+describe('<Wrapper />', (): void => {
+  // Test components
+  const TestSVG = (): JSX.Element => (
+    <svg>
+      <path data-testid="path"/>
+    </svg>
+  );
 
-// Test variables
-const colorAnimation = `animation: ${unoColorsKeyframe.getName()} infinite 21s ease-in-out`;
-
-describe('RoundDirectionArrow', (): void => {
-  it('renders the round direction arrow component without color animation', (): void => {
+  it('renders the component successfully', (): void => {
     // Arrange
     const direction = true; // right
-    const roundDirectionArrowTestId = 'round-direction-arrow';
+    const wrapperTestId = 'wrapper';
+    const svgTestId = 'path';
 
     // Act
-    const { getByTestId } = render(
-      <RoundDirectionArrow
-        $direction={direction}
-        data-testid={roundDirectionArrowTestId}
-      >
+    render(
+      <Wrapper $direction={direction} data-testid={wrapperTestId}>
         <TestSVG />
-      </RoundDirectionArrow>
+      </Wrapper>
     );
 
     // Assert
-    const roundDirectionArrowElement = getByTestId(roundDirectionArrowTestId);
-    const svgPathElements = roundDirectionArrowElement.getElementsByTagName('path');
-    expect(roundDirectionArrowElement).toHaveStyle(`
+    expect(screen.getByTestId(wrapperTestId)).toHaveStyle(`
       width: 90vmin;
       height: 90vmin;
     `);
-    expect(svgPathElements[0]).not.toHaveStyle(colorAnimation);
+    expect(screen.getByTestId(svgTestId)).toHaveStyle(`
+      animation: ${unoColorsKeyframe.getName()} infinite 21s ease-in-out
+    `);
   });
+});
 
-  it('renders the round direction arrow component with color animation', (): void => {
+describe('<RoundDirectionArrow />', (): void => {
+  it('renders the component successfully', (): void => {
     // Arrange
-    const direction = true; // right
-    const roundDirectionArrowTestId = 'round-direction-arrow';
+    const testId = 'round-direction-arrow';
 
     // Act
-    const { getByTestId } = render(
-      <RoundDirectionArrow
-        $direction={direction}
-        colorAnimation={unoColorsAnimation}
-        data-testid={roundDirectionArrowTestId}
-      >
-        <TestSVG />
-      </RoundDirectionArrow>
-    );
+    render(<RoundDirectionArrow direction={true} />);
 
     // Assert
-    const roundDirectionArrowElement = getByTestId(roundDirectionArrowTestId);
-    const svgPathElements = roundDirectionArrowElement.getElementsByTagName('path');
-    expect(roundDirectionArrowElement).toHaveStyle(`
-      width: 90vmin;
-      height: 90vmin;
-    `);
-    expect(svgPathElements[0]).toHaveStyle(colorAnimation);
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
+    expect(screen.getByText(/slim-spin-arrow.svg/i)).toBeInTheDocument();
   });
 });
