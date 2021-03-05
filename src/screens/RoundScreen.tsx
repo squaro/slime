@@ -21,7 +21,13 @@ const RoundScreen: React.FunctionComponent = () => {
     await enableWakeLock();
     closeModal();
   };
-  const toggleDirection = (): void => setDirection(!direction);
+  const toggleDirection = (): void => {
+    // The logic should be validated anyways besides the fact that the 
+    // user can't click on the screen if the instructions modal is open
+    if (!isOpen) {
+      setDirection(!direction);
+    }
+  };
 
   return (
     <React.Fragment>
