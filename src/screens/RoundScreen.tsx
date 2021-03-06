@@ -11,29 +11,31 @@ const RoundScreen: React.FunctionComponent = () => {
   // Store direction value
   //  * Left = false
   //  * Right = true (default)
-  const [direction, setDirection] = useState(true);
-  const [isOpen, setIsOpen] = useState(true);
+  const [roundDirection, setRoundDirection] = useState(true);
+  const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(true);
   
   // Actions
-  const closeModal = (): void => setIsOpen(false);
+  const closeInstructionsModal = (): void => setIsInstructionsModalOpen(false);
   const enableWakeLock = (): Promise<void> => wakeLock.enable();
   const start = async (): Promise<void> => {
     await enableWakeLock();
-    closeModal();
+    closeInstructionsModal();
   };
   const toggleDirection = (): void => {
-    // TODO: Analyze if the modal can be moved outside the screen component to
-    // avoid having to check if the instructions (or any) modal is open
-    if (!isOpen) {
-      setDirection(!direction);
+    // The logic should be validated anyways besides the fact that the 
+    // user can't click on the screen if the instructions modal is open
+    if (!isInstructionsModalOpen) {
+      setRoundDirection(!roundDirection);
     }
   };
 
   return (
-    <Screen onClick={toggleDirection} data-testid="round-screen">
-      <RoundDirectionArrow direction={direction} />
-      <InstructionsModal isOpen={isOpen} onClose={start} />
-    </Screen>
+    <React.Fragment>
+      <Screen onClick={toggleDirection} data-testid="round-screen">
+        <RoundDirectionArrow direction={roundDirection} />
+      </Screen>
+      <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
+    </React.Fragment>
   );
 };
 
