@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/squaro/slime/compare/v1.0.0...v1.0.1) (2021-03-06)
+
+
+### Bug Fixes
+
+* update round screen components positioning ([#11](https://github.com/squaro/slime/issues/11)) ([52cbc71](https://github.com/squaro/slime/commit/52cbc7105b1c70faec804edea886384538fbf677))
+
 # 1.0.0 (2021-03-02)
 
 
