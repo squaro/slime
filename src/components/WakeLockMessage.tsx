@@ -34,7 +34,6 @@ const Button = styled.a`
   outline: none;
   font-size: 12px;
   color: #757575;
-  background-color: transparent;
   text-decoration: underline;
   cursor: pointer;
 
@@ -54,10 +53,10 @@ function WakeLockMessage({ isWakeLockEnabled, onClick }: WakeLockMessageProps) {
 
   return (
     <Wrapper>
-      <Message warning={showWarning}>
+      <Message warning={showWarning} data-testid="wake-lock-message">
         The screen will {showWarning && `not`} remain active while using the application.
       </Message>
-      <Button onClick={onClick}>
+      <Button onClick={onClick} data-testid="wake-lock-message-button">
         Learn more
       </Button>
     </Wrapper>
