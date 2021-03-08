@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  user-select: none;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
