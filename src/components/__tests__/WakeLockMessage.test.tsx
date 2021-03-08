@@ -23,7 +23,7 @@ test("renders a different wake lock message when it's disabled", () => {
   expect(messageText).toHaveStyle(`color: #8F8C29;`);
 });
 
-test("calls the on click callback when pressed the button", () => {
+test('calls the on click callback when pressed the button', () => {
   const enabled = false;
   const onClick = jest.fn();
 
