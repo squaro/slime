@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import InstructionsModal from '../components/InstructionsModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
+import WakeLockMessage from '../components/WakeLockMessage';
+import WakeLockModal from '../components/WakeLockModal';
 import wakeLock from '../utils/wakeLock';
+
+const RoundDirectionArrowWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 // TODO: Test state & actions
 // TODO: Test round direction arrow props
@@ -13,9 +25,12 @@ const RoundScreen: React.FunctionComponent = () => {
   //  * Right = true (default)
   const [roundDirection, setRoundDirection] = useState(true);
   const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(true);
+  const [isWakeLockModalOpen, setIsWakeLockModalOpen] = useState(false);
   
   // Actions
   const closeInstructionsModal = (): void => setIsInstructionsModalOpen(false);
+  const closeWakeLockModal = (): void => setIsWakeLockModalOpen(false);
+  const openWakeLockModal = (): void => setIsWakeLockModalOpen(true);
   const enableWakeLock = (): Promise<void> => wakeLock.enable();
   const start = async (): Promise<void> => {
     await enableWakeLock();
@@ -31,10 +46,14 @@ const RoundScreen: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <Screen onClick={toggleDirection} data-testid="round-screen">
-        <RoundDirectionArrow direction={roundDirection} />
+      <Screen data-testid="round-screen">
+        <RoundDirectionArrowWrapper onClick={toggleDirection}>
+          <RoundDirectionArrow direction={roundDirection} />
+        </RoundDirectionArrowWrapper>
+        <WakeLockMessage isWakeLockEnabled={wakeLock.isEnabled} onClick={openWakeLockModal} />
       </Screen>
       <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
+      <WakeLockModal isOpen={isWakeLockModalOpen} onClose={closeWakeLockModal} />
     </React.Fragment>
   );
 };
