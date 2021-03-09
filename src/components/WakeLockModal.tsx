@@ -25,11 +25,9 @@ export const Text = styled.p`
   text-align: left;
 `;
 
-export const TextClarification = styled.p`
-  margin-top: 0;
+export const TextClarification = styled(Text)`
   font-size: 12px;
   font-style: italic;
-  text-align: left;
   color: #9E9E9E;
 `;
 
