@@ -5,6 +5,7 @@ import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
 import WakeLockMessage from '../components/WakeLockMessage';
 import WakeLockModal from '../components/WakeLockModal';
+import logger from '../utils/logger';
 import wakeLock from '../utils/wakeLock';
 
 const RoundDirectionArrowWrapper = styled.div`
@@ -29,13 +30,27 @@ const RoundScreen: React.FunctionComponent = () => {
   
   // Actions
   const closeInstructionsModal = (): void => setIsInstructionsModalOpen(false);
+
   const closeWakeLockModal = (): void => setIsWakeLockModalOpen(false);
+
   const openWakeLockModal = (): void => setIsWakeLockModalOpen(true);
-  const enableWakeLock = (): Promise<void> => wakeLock.enable();
+
+  // TODO: Move to wakeLock.ts to delegate responsability
+  const enableWakeLock = async (): Promise<void> => {
+    try {
+      logger.logInfo('[WakeLock] Locking screen...');
+      await wakeLock.enable();
+      logger.logInfo('[WakeLock] Screen locked!');
+    } catch (err) {
+      logger.logError('[WakeLock] An error occurred while locking the screen.', err);
+    }
+  };
+
   const start = async (): Promise<void> => {
     await enableWakeLock();
     closeInstructionsModal();
   };
+
   const toggleDirection = (): void => {
     // The logic should be validated anyways besides the fact that the 
     // user can't click on the screen if the instructions modal is open
