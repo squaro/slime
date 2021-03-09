@@ -28,7 +28,7 @@ test('renders the wake lock modal', () => {
   expect(screen.queryByTestId('wake-lock-modal')).toBeInTheDocument();
   expect(screen.getByTestId('wake-lock-modal-feature-text')).toHaveTextContent('The Wake Lock feature prevents the device from dimming and locking the screen while using the application.');
   expect(screen.getByTestId('wake-lock-modal-phone-text')).toHaveTextContent('You can determine whether your phone allows this feature or not by looking at the bottom of the screen.');
-  expect(screen.getByTestId('wake-lock-modal-clarification')).toHaveTextContent('If your phone doesn\'t allow the wake lock feature, soon you will be able to report the issue.');
+  expect(screen.getByTestId('wake-lock-modal-clarification-text')).toHaveTextContent('If your phone doesn\'t allow the wake lock feature, soon you will be able to report the issue.');
   expect(screen.getByTestId('wake-lock-modal-button')).toHaveTextContent('Close');
 });
 

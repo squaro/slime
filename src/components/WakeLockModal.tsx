@@ -25,7 +25,7 @@ export const Text = styled.p`
   text-align: left;
 `;
 
-export const Clarification = styled.p`
+export const TextClarification = styled.p`
   margin-top: 0;
   font-size: 12px;
   font-style: italic;
@@ -65,7 +65,7 @@ function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
       <Title data-testid="wake-lock-modal-title">Wake Lock</Title>
       <Text data-testid="wake-lock-modal-feature-text">The Wake Lock feature prevents the device from <b>dimming</b> and <b>locking</b> the screen while using the application.</Text>
       <Text data-testid="wake-lock-modal-phone-text">You can determine whether your phone allows this feature or not by looking at the bottom of the screen.</Text>
-      <Clarification data-testid="wake-lock-modal-clarification">If your phone doesn't allow the wake lock feature, soon you will be able to report the issue.</Clarification>
+      <TextClarification data-testid="wake-lock-modal-clarification-text">If your phone doesn't allow the wake lock feature, soon you will be able to report the issue.</TextClarification>
       <Button onClick={onClose} data-testid="wake-lock-modal-button">Close</Button>
     </Wrapper>
   );
