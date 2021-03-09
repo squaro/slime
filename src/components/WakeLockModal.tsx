@@ -54,19 +54,21 @@ export const Button = styled.button`
   }
 `;
 
-interface WakeLockProps {
+interface WakeLockModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const WakeLock: React.FunctionComponent<WakeLockProps> = ({ isOpen, onClose }) => (
-  <Wrapper isOpen={isOpen}>
-    <Title>Wake Lock</Title>
-    <Text>The Wake Lock feature prevents the device from <b>dimming</b> and <b>locking</b> the screen while using the application.</Text>
-    <Text>You can determine whether your phone allows this feature or not by looking at the bottom of the screen</Text>
-    <Clarification>If your phone doesn't allow the wake lock feature, soon you will be able to report the issue.</Clarification>
-    <Button onClick={onClose}>Close</Button>
-  </Wrapper>
-);
+function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
+  return (
+    <Wrapper isOpen={isOpen} data-testid="wake-lock-modal">
+      <Title data-testid="wake-lock-modal-title">Wake Lock</Title>
+      <Text data-testid="wake-lock-modal-feature-text">The Wake Lock feature prevents the device from <b>dimming</b> and <b>locking</b> the screen while using the application.</Text>
+      <Text data-testid="wake-lock-modal-phone-text">You can determine whether your phone allows this feature or not by looking at the bottom of the screen.</Text>
+      <Clarification data-testid="wake-lock-modal-clarification">If your phone doesn't allow the wake lock feature, soon you will be able to report the issue.</Clarification>
+      <Button onClick={onClose} data-testid="wake-lock-modal-button">Close</Button>
+    </Wrapper>
+  );
+};
 
 export default WakeLock;
