@@ -15,6 +15,9 @@ const RoundDirectionArrowWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  // Solves the overflow issue when clicking the 'Learn more' button
+  overflow: hidden;
 `;
 
 // TODO: Test state & actions
