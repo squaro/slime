@@ -31,7 +31,6 @@ const Message = styled.p<MessageProps>`
 
 const Button = styled.a`
   padding: 2px 4px;
-  outline: none;
   font-size: 12px;
   color: #757575;
   text-decoration: underline;

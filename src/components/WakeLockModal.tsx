@@ -13,6 +13,7 @@ export const Wrapper = Modal.styled`
   background-color: #424242;
   border: 2px solid #0D58BB;
   border-radius: 15px;
+  user-select: none;
 `;
 
 export const Title = styled.h3`
@@ -38,7 +39,6 @@ export const Button = styled.button`
   border-radius: 10px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
   background-color: #0D58BB;
-  outline: none;
   border: 0 none;
   font-weight: bold;
   font-size: 16px;
