@@ -54,10 +54,10 @@ export const Button = styled.button`
   }
 `;
 
-interface WakeLockModalProps {
+type WakeLockModalProps = {
   isOpen: boolean;
   onClose: () => void;
-}
+};
 
 function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
   return (
