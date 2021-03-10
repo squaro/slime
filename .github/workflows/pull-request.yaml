@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  release:
-    name: Release
+  check:
+    name: Check
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
