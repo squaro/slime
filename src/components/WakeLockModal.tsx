@@ -64,7 +64,7 @@ function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
       <Text data-testid="wake-lock-modal-feature-text">The Wake Lock feature prevents the device from <b>dimming</b> and <b>locking</b> the screen while using the application.</Text>
       <Text data-testid="wake-lock-modal-phone-text">You can determine whether your phone supports this feature or not by looking at the bottom of the screen.</Text>
       <TextClarification data-testid="wake-lock-modal-clarification-text">If your phone doesn't support the wake lock feature, soon you will be able to report the issue.</TextClarification>
-      <Button onClick={onClose} data-testid="wake-lock-modal-button">Close</Button>
+      <Button onClick={onClose} data-testid="wake-lock-modal-close-button">Close</Button>
     </Wrapper>
   );
 };
