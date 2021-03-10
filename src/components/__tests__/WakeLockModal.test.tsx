@@ -29,7 +29,7 @@ test('renders the wake lock modal', () => {
   expect(screen.queryByTestId('wake-lock-modal-feature-text')).toBeInTheDocument();
   expect(screen.queryByTestId('wake-lock-modal-phone-text')).toBeInTheDocument();
   expect(screen.queryByTestId('wake-lock-modal-clarification-text')).toBeInTheDocument();
-  expect(screen.queryByTestId('wake-lock-modal-button')).toBeInTheDocument();
+  expect(screen.queryByTestId('wake-lock-modal-close-button')).toBeInTheDocument();
 });
 
 test('calls the on close callback when pressed the button', async () => {
@@ -42,7 +42,7 @@ test('calls the on close callback when pressed the button', async () => {
     </ModalProvider>
   );
 
-  const modalButton = screen.getByTestId('wake-lock-modal-button');
-  fireEvent.click(modalButton);
+  const closeButton = screen.getByTestId('wake-lock-modal-close-button');
+  fireEvent.click(closeButton);
   expect(onClose).toHaveBeenCalled();
 });
