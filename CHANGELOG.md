@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/squaro/slime/compare/v1.0.1...v1.1.0) (2021-03-10)
+
+
+### Features
+
+* add Wake Lock modal ([#12](https://github.com/squaro/slime/issues/12)) ([c1507cb](https://github.com/squaro/slime/commit/c1507cba3c4ed433b7944c50c4caadffa3ecaa1e))
+
 ## [1.0.1](https://github.com/squaro/slime/compare/v1.0.0...v1.0.1) (2021-03-06)
 
 
