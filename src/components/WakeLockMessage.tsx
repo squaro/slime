@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import strings from '../config/strings';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -48,15 +50,18 @@ type WakeLockMessageProps = {
 };
 
 function WakeLockMessage({ isWakeLockEnabled, onClick }: WakeLockMessageProps) {
+  const { t } = useTranslation();
   const showWarning = !isWakeLockEnabled;
+  const messageText = t(!showWarning ? strings.WAKE_LOCK_MESSAGE_ENABLED : strings.WAKE_LOCK_MESSAGE_DISABLED);
+  const buttonText = t(strings.WAKE_LOCK_MESSAGE_ACTION_BUTTON);
 
   return (
     <Wrapper>
       <Message warning={showWarning} data-testid="wake-lock-message">
-        The screen will {showWarning && `not`} remain active while using the application.
+        {messageText}
       </Message>
       <Button onClick={onClick} data-testid="wake-lock-message-button">
-        Learn more
+        {buttonText}
       </Button>
     </Wrapper>
   );
