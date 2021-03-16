@@ -26,6 +26,7 @@ test('renders the wake lock modal', () => {
   );
 
   expect(screen.queryByTestId('wake-lock-modal')).toBeInTheDocument();
+  expect(screen.queryByTestId('wake-lock-modal-title')).toBeInTheDocument();
   expect(screen.queryByTestId('wake-lock-modal-feature-text')).toBeInTheDocument();
   expect(screen.queryByTestId('wake-lock-modal-phone-text')).toBeInTheDocument();
   expect(screen.queryByTestId('wake-lock-modal-clarification-text')).toBeInTheDocument();

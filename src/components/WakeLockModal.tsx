@@ -1,8 +1,9 @@
-import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Modal from 'styled-react-modal';
+import strings from '../config/strings';
 
-export const Wrapper = Modal.styled`
+const Wrapper = Modal.styled`
   width: 80vmin;
   max-width: 288px;
   padding: 12px;
@@ -16,23 +17,23 @@ export const Wrapper = Modal.styled`
   user-select: none;
 `;
 
-export const Title = styled.h3`
+const Title = styled.h3`
   margin-top: 0;
   text-transform: uppercase;
 `;
 
-export const Text = styled.p`
+const Text = styled.p`
   margin-top: 0;
   text-align: left;
 `;
 
-export const TextClarification = styled(Text)`
+const TextClarification = styled(Text)`
   font-size: 12px;
   font-style: italic;
   color: #9E9E9E;
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   width: 100%;
   padding: 20px 72px;
   margin-top: 12px;
@@ -58,13 +59,29 @@ type WakeLockModalProps = {
 };
 
 function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
+  const { t } = useTranslation();
+  const titleText = t(strings.WAKE_LOCK_MODAL_TITLE);
+  const phoneText = t(strings.WAKE_LOCK_MODAL_PHONE);
+  const clarificationText = t(strings.WAKE_LOCK_MODAL_CLARIFICATION);
+  const closeButtonText = t(strings.WAKE_LOCK_MODAL_CLOSE_BUTTON);
+
   return (
     <Wrapper isOpen={isOpen} data-testid="wake-lock-modal">
-      <Title data-testid="wake-lock-modal-title">Wake Lock</Title>
-      <Text data-testid="wake-lock-modal-feature-text">The Wake Lock feature prevents the device from <b>dimming</b> and <b>locking</b> the screen while using the application.</Text>
-      <Text data-testid="wake-lock-modal-phone-text">You can determine whether your phone supports this feature or not by looking at the bottom of the screen.</Text>
-      <TextClarification data-testid="wake-lock-modal-clarification-text">If your phone doesn't support the wake lock feature, soon you will be able to report the issue.</TextClarification>
-      <Button onClick={onClose} data-testid="wake-lock-modal-close-button">Close</Button>
+      <Title data-testid="wake-lock-modal-title">
+        {titleText}
+      </Title>
+      <Text data-testid="wake-lock-modal-feature-text">
+        <Trans i18nKey={strings.WAKE_LOCK_MODAL_FEATURE} components={[<strong />]} />
+      </Text>
+      <Text data-testid="wake-lock-modal-phone-text">
+        {phoneText}
+      </Text>
+      <TextClarification data-testid="wake-lock-modal-clarification-text">
+        {clarificationText}
+      </TextClarification>
+      <Button onClick={onClose} data-testid="wake-lock-modal-close-button">
+        {closeButtonText}
+      </Button>
     </Wrapper>
   );
 };
