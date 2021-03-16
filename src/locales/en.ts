@@ -4,6 +4,9 @@ const getWakeLockMessage = (enabled: boolean) =>
   `The screen will ${!enabled ? ` not ` : ''}remain active while using the application.`;
 
 const en: typeof strings = {
+  INSTRUCTIONS_MODAL_CLOSE_BUTTON: 'Got it!',
+  INSTRUCTIONS_MODAL_TEXT: 'Tap <0>anywhere</0> in the screen to change the arrow\'s direction.',
+  INSTRUCTIONS_MODAL_TITLE: 'Instructions',
   WAKE_LOCK_MESSAGE_ACTION_BUTTON: 'Learn more',
   WAKE_LOCK_MESSAGE_ENABLED: getWakeLockMessage(true),
   WAKE_LOCK_MESSAGE_DISABLED: getWakeLockMessage(false),
