@@ -1,9 +1,10 @@
-import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import { ReactComponent as TapScreen } from '../assets/instructions/tap-screen.svg';
+import strings from '../config/strings';
 
-export const Wrapper = Modal.styled`
+const Wrapper = Modal.styled`
   width: 80vmin;
   max-width: 288px;
   padding: 12px;
@@ -17,21 +18,21 @@ export const Wrapper = Modal.styled`
   user-select: none;
 `;
 
-export const Title = styled.h3`
+const Title = styled.h3`
   margin: 0;
   text-transform: uppercase;
 `;
 
-export const Text = styled.p`
+const Text = styled.p`
   text-align: center;
   padding: 0 32px;
 `;
 
-export const TapScreenImage = styled(TapScreen)`
+const TapScreenImage = styled(TapScreen)`
   margin: 12px;
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   width: 100%;
   padding: 20px 72px;
   margin-top: 12px;
@@ -51,18 +52,30 @@ export const Button = styled.button`
   }
 `;
 
-interface InstructionsModalProps {
+type InstructionsModalProps = {
   isOpen: boolean;
   onClose: () => void;
-}
+};
 
-const InstructionsModal: React.FunctionComponent<InstructionsModalProps> = ({ isOpen, onClose }) => (
-  <Wrapper isOpen={isOpen}>
-    <Title>Instructions</Title>
-    <Text>Tap <b>anywhere</b> in the screen to change the arrow's direction.</Text>
-    <TapScreenImage />
-    <Button onClick={onClose}>Got it!</Button>
-  </Wrapper>
-);
+function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
+  const { t } = useTranslation();
+  const titleText = t(strings.INSTRUCTIONS_MODAL_TITLE);
+  const closeButtonText = t(strings.INSTRUCTIONS_MODAL_CLOSE_BUTTON);
+
+  return (
+    <Wrapper isOpen={isOpen} data-testid="instructions-modal">
+      <Title data-testid="instructions-modal-title">
+        {titleText}
+      </Title>
+      <Text data-testid="instructions-modal-text">
+        <Trans i18nKey={strings.INSTRUCTIONS_MODAL_TEXT} components={[<strong />]} />
+      </Text>
+      <TapScreenImage data-testid="instructions-modal-tap-screen-image" />
+      <Button onClick={onClose} data-testid="instructions-modal-close-button">
+        {closeButtonText}
+      </Button>
+    </Wrapper>
+  );
+};
 
 export default InstructionsModal;
