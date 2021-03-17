@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/squaro/slime/compare/v1.1.0...v1.2.0) (2021-03-17)
+
+
+### Features
+
+* add i18n configuration and default translations ([#14](https://github.com/squaro/slime/issues/14)) ([27cc2ac](https://github.com/squaro/slime/commit/27cc2acc2465383266c3485f958db3adef98163f))
+
 # [1.1.0](https://github.com/squaro/slime/compare/v1.0.1...v1.1.0) (2021-03-10)
 
 
