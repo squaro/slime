@@ -1,6 +1,7 @@
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import { en, es } from '../locales';
+import { initReactI18next, } from 'react-i18next';
+import * as locales from '../locales';
+import { mapLocalesToResources } from '../utils/i18n';
 
 i18n
   .use(initReactI18next)
@@ -10,14 +11,7 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    resources: {
-      en: {
-        translation: en,
-      },
-      es: {
-        translation: es,
-      },
-    },
+    resources: mapLocalesToResources(locales),
   });
 
 export default i18n;
