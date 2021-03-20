@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/squaro/slime/compare/v1.2.0...v1.3.0) (2021-03-20)
+
+
+### Features
+
+* add spanish language ([#15](https://github.com/squaro/slime/issues/15)) ([0e344a4](https://github.com/squaro/slime/commit/0e344a4c3b1feff9fad1c9c1985fe9278d1fbf2e))
+
 # [1.2.0](https://github.com/squaro/slime/compare/v1.1.0...v1.2.0) (2021-03-17)
 
 
