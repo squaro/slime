@@ -1,7 +1,7 @@
 import { Resource } from 'i18next';
 import { mapLocalesToResources } from '../i18n';
 
-test('should map a single locale to resources properly', (): void => {
+test('should map a single locale to resources properly', () => {
   const en = {
     FOO: 'foo',
     BAR: 'bar',
@@ -17,7 +17,7 @@ test('should map a single locale to resources properly', (): void => {
   expect(resources.en.translation).toMatchObject(en);
 });
 
-test('should map multiple locales to resources properly', (): void => {
+test('should map multiple locales to resources properly', () => {
   const en = {
     FOO: 'foo',
     BAR: 'bar',
