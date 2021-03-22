@@ -4,6 +4,7 @@ import { initReactI18next, } from 'react-i18next';
 import * as locales from '../locales';
 import { mapLocalesToResources } from '../utils/i18n';
 
+// Initialize i18n
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -14,5 +15,8 @@ i18n
     },
     resources: mapLocalesToResources(locales),
   });
+
+// Update DOM lang with current language
+document.documentElement.lang = i18n.language;
 
 export default i18n;
