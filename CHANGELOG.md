@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/squaro/slime/compare/v1.3.0...v1.4.0) (2021-03-22)
+
+
+### Features
+
+* add browser language detector ([#16](https://github.com/squaro/slime/issues/16)) ([2d12a28](https://github.com/squaro/slime/commit/2d12a2888ce253e5d50f23706559dc59751d6b21))
+
 # [1.3.0](https://github.com/squaro/slime/compare/v1.2.0...v1.3.0) (2021-03-20)
 
 
