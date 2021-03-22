@@ -10,3 +10,7 @@ export const mapLocalesToResources = (locales: ResourceLanguage) => Object.keys(
   },
   {} as Resource,
 );
+
+export const updateDOMLanguage = (lang: string) => {
+  document.documentElement.lang = lang;
+};
