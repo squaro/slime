@@ -9,6 +9,8 @@ const en: typeof strings = {
   INSTRUCTIONS_MODAL_TITLE: 'Instructions',
   LANG_EN_US: 'English',
   LANG_ES_ES: 'Spanish',
+  LANGUAGE_MODAL_CLOSE_BUTTON: 'Close',
+  LANGUAGE_MODAL_TITLE: 'Language',
   WAKE_LOCK_MESSAGE_ACTION_BUTTON: 'Learn more',
   WAKE_LOCK_MESSAGE_ENABLED: getWakeLockMessage(true),
   WAKE_LOCK_MESSAGE_DISABLED: getWakeLockMessage(false),
