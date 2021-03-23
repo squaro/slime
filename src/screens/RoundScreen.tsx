@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import InstructionsModal from '../components/InstructionsModal';
+import LanguageModal from '../components/LanguageModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
 import WakeLockMessage from '../components/WakeLockMessage';
@@ -23,17 +24,21 @@ const RoundDirectionArrowWrapper = styled.div`
 // TODO: Test state & actions
 // TODO: Test round direction arrow props
 // TODO: Test instructions modal
+// TODO: Test language modal
 const RoundScreen: React.FunctionComponent = () => {
   // Store direction value
   //  * Left = false
   //  * Right = true (default)
   const [roundDirection, setRoundDirection] = useState(true);
   const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(true);
+  const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
   const [isWakeLockModalOpen, setIsWakeLockModalOpen] = useState(false);
   
   // Actions
   const closeInstructionsModal = (): void => setIsInstructionsModalOpen(false);
 
+  const closeLanguageModal = (): void => setIsLanguageModalOpen(false);
+  
   const closeWakeLockModal = (): void => setIsWakeLockModalOpen(false);
 
   const openWakeLockModal = (): void => setIsWakeLockModalOpen(true);
@@ -71,6 +76,7 @@ const RoundScreen: React.FunctionComponent = () => {
         <WakeLockMessage isWakeLockEnabled={wakeLock.isEnabled} onClick={openWakeLockModal} />
       </Screen>
       <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
+      <LanguageModal isOpen={isLanguageModalOpen} onClose={closeLanguageModal} />
       <WakeLockModal isOpen={isWakeLockModalOpen} onClose={closeWakeLockModal} />
     </React.Fragment>
   );
