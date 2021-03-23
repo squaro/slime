@@ -58,7 +58,7 @@ type WakeLockModalProps = {
   onClose: () => void;
 };
 
-function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
+function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
   const { t } = useTranslation();
   const titleText = t(strings.WAKE_LOCK_MODAL_TITLE);
   const phoneText = t(strings.WAKE_LOCK_MODAL_PHONE);
@@ -86,4 +86,4 @@ function WakeLock({ isOpen, onClose }: WakeLockModalProps) {
   );
 };
 
-export default WakeLock;
+export default WakeLockModal;
