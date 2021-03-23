@@ -64,6 +64,8 @@ type AvailableLanguage = {
   string: string;
 };
 
+// TODO: Test selected language
+// TODO: Test changing language
 function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   const { t, i18n } = useTranslation();
   const titleText = t(strings.LANGUAGE_MODAL_TITLE);
@@ -89,7 +91,7 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
       <Title data-testid="language-modal-title">
         {titleText}
       </Title>
-      <LanguagesList>
+      <LanguagesList data-testid="language-modal-languages-list">
         {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
           <LanguageItem
             key={code}

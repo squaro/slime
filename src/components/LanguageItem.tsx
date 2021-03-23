@@ -53,7 +53,11 @@ function LanguageItem({ code, selected, string, onClick }: LanguageItemProps) {
   const languageText = t(string);
 
   return (
-    <Wrapper $selected={selected} onClick={onClick}>
+    <Wrapper
+      $selected={selected}
+      data-testid={`language-modal-language-${code.toLowerCase()}`}
+      onClick={onClick}
+    >
       <LanguageFlag src={languageFlag} alt={languageText} title={languageText} />
       <LanguageText>{languageText}</LanguageText>
     </Wrapper>
