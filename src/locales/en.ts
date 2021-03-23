@@ -7,6 +7,8 @@ const en: typeof strings = {
   INSTRUCTIONS_MODAL_CLOSE_BUTTON: 'Got it!',
   INSTRUCTIONS_MODAL_TEXT: 'Tap <0>anywhere</0> in the screen to change the arrow\'s direction.',
   INSTRUCTIONS_MODAL_TITLE: 'Instructions',
+  LANG_EN_US: 'English',
+  LANG_ES_ES: 'Spanish',
   WAKE_LOCK_MESSAGE_ACTION_BUTTON: 'Learn more',
   WAKE_LOCK_MESSAGE_ENABLED: getWakeLockMessage(true),
   WAKE_LOCK_MESSAGE_DISABLED: getWakeLockMessage(false),
