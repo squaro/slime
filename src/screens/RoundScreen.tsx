@@ -59,10 +59,16 @@ const RoundScreen: React.FunctionComponent = () => {
     closeInstructionsModal();
   };
 
+  const canToggleDirection = (): boolean => (
+    !isInstructionsModalOpen &&
+    !isLanguageModalOpen &&
+    !isWakeLockModalOpen
+  );
+
   const toggleDirection = (): void => {
     // The logic should be validated anyways besides the fact that the 
-    // user can't click on the screen if the instructions modal is open
-    if (!isInstructionsModalOpen) {
+    // user can't click on the screen if any modal is open
+    if (canToggleDirection()) {
       setRoundDirection(!roundDirection);
     }
   };
