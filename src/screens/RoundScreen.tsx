@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import LanguageButton from '../components/LanguageButton';
 import InstructionsModal from '../components/InstructionsModal';
 import LanguageModal from '../components/LanguageModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
@@ -8,6 +9,15 @@ import WakeLockMessage from '../components/WakeLockMessage';
 import WakeLockModal from '../components/WakeLockModal';
 import logger from '../utils/logger';
 import wakeLock from '../utils/wakeLock';
+
+const Header = styled.div`
+  width: 100%;
+  height: 48px;
+  padding: 0 4px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
 
 const RoundDirectionArrowWrapper = styled.div`
   flex-grow: 1;
@@ -40,6 +50,8 @@ const RoundScreen: React.FunctionComponent = () => {
   const closeLanguageModal = (): void => setIsLanguageModalOpen(false);
   
   const closeWakeLockModal = (): void => setIsWakeLockModalOpen(false);
+
+  const openLanguageModal = (): void => setIsLanguageModalOpen(true);
 
   const openWakeLockModal = (): void => setIsWakeLockModalOpen(true);
 
@@ -76,6 +88,9 @@ const RoundScreen: React.FunctionComponent = () => {
   return (
     <React.Fragment>
       <Screen data-testid="round-screen">
+        <Header>
+          <LanguageButton onClick={openLanguageModal}/>
+        </Header>
         <RoundDirectionArrowWrapper onClick={toggleDirection}>
           <RoundDirectionArrow direction={roundDirection} />
         </RoundDirectionArrowWrapper>
