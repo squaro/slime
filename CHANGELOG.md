@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/squaro/slime/compare/v1.4.0...v1.5.0) (2021-03-24)
+
+
+### Features
+
+* add language modal ([#17](https://github.com/squaro/slime/issues/17)) ([a006a0e](https://github.com/squaro/slime/commit/a006a0ea60061dc7112cfb192a164b792b362a18))
+
 # [1.4.0](https://github.com/squaro/slime/compare/v1.3.0...v1.4.0) (2021-03-22)
 
 
