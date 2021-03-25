@@ -19,6 +19,8 @@ const es: typeof strings = {
   WAKE_LOCK_MODAL_FEATURE: 'La funcionalidad Wake Lock impide que el dispositivo <0>oscurezca</0> y <0>bloquee</0> la pantalla mientras se utiliza la aplicación.',
   WAKE_LOCK_MODAL_PHONE: 'Puedes determinar si tu teléfono admite esta funcionalidad o no mirando la parte inferior de la pantalla.',
   WAKE_LOCK_MODAL_TITLE: 'Wake Lock',
+  WAKE_LOCK_STATUS_ENABLED: 'Activado',
+  WAKE_LOCK_STATUS_DISABLED: 'Desactivado',
 };
 
 export default es;
