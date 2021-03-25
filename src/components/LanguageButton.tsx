@@ -56,10 +56,10 @@ function LanguageButton({ onClick }: LanguageButtonProps) {
   const shortLanguage = i18n.language.substr(0, 2).toUpperCase();
 
   return (
-    <Wrapper onClick={onClick}>
-      <GlobeIcon size="16" />
-      <Separator />
-      <Language>
+    <Wrapper onClick={onClick} data-testid="language-button">
+      <GlobeIcon size="16" data-testid="language-button-globe-icon" />
+      <Separator data-testid="language-button-separator" />
+      <Language data-testid="language-button-short-language">
         {shortLanguage}
       </Language>
     </Wrapper>
