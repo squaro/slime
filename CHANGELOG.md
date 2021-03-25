@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/squaro/slime/compare/v1.5.0...v1.6.0) (2021-03-25)
+
+
+### Features
+
+* add language button ([#18](https://github.com/squaro/slime/issues/18)) ([bbe534a](https://github.com/squaro/slime/commit/bbe534a819697c19e1214438f06c8f5e16acdf8d))
+
 # [1.5.0](https://github.com/squaro/slime/compare/v1.4.0...v1.5.0) (2021-03-24)
 
 
