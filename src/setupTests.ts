@@ -4,6 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import React from 'react';
+import { defaultLanguage as mockLanguage } from './config/languages';
 
 jest.mock('react-i18next', () => ({
   // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -11,7 +12,7 @@ jest.mock('react-i18next', () => ({
     return {
       t: (str: string) => str,
       i18n: {
-        language: 'en-US',
+        language: mockLanguage,
         changeLanguage: () => new Promise(() => {}),
       },
     };

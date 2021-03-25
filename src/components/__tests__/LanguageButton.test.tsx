@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { defaultLanguage } from '../../config/languages';
 import LanguageButton from '../LanguageButton';
 
 test('renders the language button with the proper language', () => {
   const onClick = jest.fn();
 
-  // TODO: Get short language from i18n rather
-  // hardcoding the value here.
-  const defaultShortLanguage = 'EN';
+  // TODO: Get short language from i18n rather than using the default language.
+  const defaultShortLanguage = defaultLanguage.substring(0, 2).toUpperCase();
 
   render(
     <LanguageButton onClick={onClick} />
