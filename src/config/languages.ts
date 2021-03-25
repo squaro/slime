@@ -1,11 +1,14 @@
 import strings from './strings';
 
+// Default
+export const defaultLanguage = 'en-US';
+
 export type Language = {
   code: string;
   string: string;
 };
 
-// List of available languages
+// List of languages
 const languages: Language[] = [
   {
     code: 'en-US',
