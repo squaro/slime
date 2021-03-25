@@ -6,7 +6,6 @@ import LanguageModal from '../components/LanguageModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
 import WakeLockButton from '../components/WakeLockButton';
-import WakeLockMessage from '../components/WakeLockMessage';
 import WakeLockModal from '../components/WakeLockModal';
 import logger from '../utils/logger';
 import wakeLock from '../utils/wakeLock';
@@ -96,7 +95,6 @@ const RoundScreen: React.FunctionComponent = () => {
         <RoundDirectionArrowWrapper onClick={toggleDirection}>
           <RoundDirectionArrow direction={roundDirection} />
         </RoundDirectionArrowWrapper>
-        <WakeLockMessage isWakeLockEnabled={wakeLock.isEnabled} onClick={openWakeLockModal} />
       </Screen>
       <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
       <LanguageModal isOpen={isLanguageModalOpen} onClose={closeLanguageModal} />
