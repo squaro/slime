@@ -42,8 +42,8 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
   const closeButtonText = t(strings.WAKE_LOCK_MODAL_CLOSE_BUTTON);
 
   return (
-    <Modal isOpen={isOpen} data-testid="wake-lock-modal">
-      <ModalStyles>
+    <Modal isOpen={isOpen}>
+      <ModalStyles data-testid="wake-lock-modal">
         <ModalTitle data-testid="wake-lock-modal-title">
           {titleText}
         </ModalTitle>

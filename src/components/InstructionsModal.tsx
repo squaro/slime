@@ -39,8 +39,8 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
   const closeButtonText = t(strings.INSTRUCTIONS_MODAL_CLOSE_BUTTON);
 
   return (
-    <Modal isOpen={isOpen} data-testid="instructions-modal">
-      <ModalStyles>
+    <Modal isOpen={isOpen}>
+      <ModalStyles data-testid="instructions-modal">
         <ModalTitle data-testid="instructions-modal-title">
           {titleText}
         </ModalTitle>

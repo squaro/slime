@@ -63,8 +63,8 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   };
 
   return (
-    <Modal isOpen={isOpen} data-testid="language-modal">
-      <ModalStyles>
+    <Modal isOpen={isOpen}>
+      <ModalStyles data-testid="language-modal">
         <ModalTitle data-testid="language-modal-title">
           {titleText}
         </ModalTitle>
