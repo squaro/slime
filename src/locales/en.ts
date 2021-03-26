@@ -1,8 +1,5 @@
 import strings from '../config/strings';
 
-const getWakeLockMessage = (enabled: boolean) =>
-  `The screen will ${!enabled ? ` not ` : ''}remain active while using the application.`;
-
 const en: typeof strings = {
   INSTRUCTIONS_MODAL_CLOSE_BUTTON: 'Got it!',
   INSTRUCTIONS_MODAL_TEXT: 'Tap <0>anywhere</0> in the screen to change the arrow\'s direction.',
@@ -11,14 +8,13 @@ const en: typeof strings = {
   LANG_ES_ES: 'Spanish',
   LANGUAGE_MODAL_CLOSE_BUTTON: 'Close',
   LANGUAGE_MODAL_TITLE: 'Language',
-  WAKE_LOCK_MESSAGE_ACTION_BUTTON: 'Learn more',
-  WAKE_LOCK_MESSAGE_ENABLED: getWakeLockMessage(true),
-  WAKE_LOCK_MESSAGE_DISABLED: getWakeLockMessage(false),
-  WAKE_LOCK_MODAL_CLARIFICATION: 'If your phone doesn\'t support the wake lock feature, soon you will be able to report the issue.',
   WAKE_LOCK_MODAL_CLOSE_BUTTON: 'Close',
   WAKE_LOCK_MODAL_FEATURE: 'The Wake Lock feature prevents the device from <0>dimming</0> and <0>locking</0> the screen while using the application.',
-  WAKE_LOCK_MODAL_PHONE: 'You can determine whether your phone supports this feature or not by looking at the bottom of the screen.',
+  WAKE_LOCK_MODAL_PHONE: 'You can determine whether your phone supports this feature or not by looking at the top of the screen.',
+  WAKE_LOCK_MODAL_SUPPORT: 'If your phone doesn\'t support the wake lock feature, soon you will be able to report the issue.',
   WAKE_LOCK_MODAL_TITLE: 'Wake Lock',
+  WAKE_LOCK_STATUS_ENABLED: 'Enabled',
+  WAKE_LOCK_STATUS_DISABLED: 'Disabled',
 };
 
 export default en;

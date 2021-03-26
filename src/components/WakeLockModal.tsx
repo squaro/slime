@@ -27,7 +27,7 @@ const Text = styled.p`
   text-align: left;
 `;
 
-const TextClarification = styled(Text)`
+const SupportText = styled(Text)`
   font-size: 12px;
   font-style: italic;
   color: #9E9E9E;
@@ -62,7 +62,7 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
   const { t } = useTranslation();
   const titleText = t(strings.WAKE_LOCK_MODAL_TITLE);
   const phoneText = t(strings.WAKE_LOCK_MODAL_PHONE);
-  const clarificationText = t(strings.WAKE_LOCK_MODAL_CLARIFICATION);
+  const supportText = t(strings.WAKE_LOCK_MODAL_SUPPORT);
   const closeButtonText = t(strings.WAKE_LOCK_MODAL_CLOSE_BUTTON);
 
   return (
@@ -76,9 +76,9 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
       <Text data-testid="wake-lock-modal-phone-text">
         {phoneText}
       </Text>
-      <TextClarification data-testid="wake-lock-modal-clarification-text">
-        {clarificationText}
-      </TextClarification>
+      <SupportText data-testid="wake-lock-modal-clarification-text">
+        {supportText}
+      </SupportText>
       <Button onClick={onClose} data-testid="wake-lock-modal-close-button">
         {closeButtonText}
       </Button>

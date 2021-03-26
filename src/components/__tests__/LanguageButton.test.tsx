@@ -27,7 +27,7 @@ test('calls the on click callback when pressed the button', async () => {
     <LanguageButton onClick={onClick} />
   );
 
-  const closeButton = screen.getByTestId('language-button');
-  fireEvent.click(closeButton);
+  const languageButton = screen.getByTestId('language-button');
+  fireEvent.click(languageButton);
   expect(onClick).toHaveBeenCalled();
 });

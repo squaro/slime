@@ -5,7 +5,7 @@ import InstructionsModal from '../components/InstructionsModal';
 import LanguageModal from '../components/LanguageModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
-import WakeLockMessage from '../components/WakeLockMessage';
+import WakeLockButton from '../components/WakeLockButton';
 import WakeLockModal from '../components/WakeLockModal';
 import logger from '../utils/logger';
 import wakeLock from '../utils/wakeLock';
@@ -15,7 +15,7 @@ const Header = styled.div`
   height: 48px;
   padding: 0 4px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -89,12 +89,12 @@ const RoundScreen: React.FunctionComponent = () => {
     <React.Fragment>
       <Screen data-testid="round-screen">
         <Header>
+          <WakeLockButton onClick={openWakeLockModal}/>
           <LanguageButton onClick={openLanguageModal}/>
         </Header>
         <RoundDirectionArrowWrapper onClick={toggleDirection}>
           <RoundDirectionArrow direction={roundDirection} />
         </RoundDirectionArrowWrapper>
-        <WakeLockMessage isWakeLockEnabled={wakeLock.isEnabled} onClick={openWakeLockModal} />
       </Screen>
       <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
       <LanguageModal isOpen={isLanguageModalOpen} onClose={closeLanguageModal} />

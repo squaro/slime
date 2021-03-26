@@ -51,6 +51,7 @@ type LanguageButtonProps = {
   onClick: () => void;
 };
 
+// TODO: Test different languages rather only the default
 function LanguageButton({ onClick }: LanguageButtonProps) {
   const { i18n } = useTranslation();
   const shortLanguage = i18n.language.substr(0, 2).toUpperCase();
