@@ -53,6 +53,7 @@ type WakeLockButtonProps = {
   onClick: () => void;
 };
 
+// TODO: Test enabled/disabled use cases
 function WakeLockButton({ onClick }: WakeLockButtonProps) {
   const { t } = useTranslation();
   const statusText = t(wakeLock.isEnabled ? strings.WAKE_LOCK_STATUS_ENABLED : strings.WAKE_LOCK_STATUS_DISABLED);
