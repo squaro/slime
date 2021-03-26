@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/squaro/slime/compare/v1.6.0...v1.7.0) (2021-03-26)
+
+
+### Features
+
+* add wake lock button ([#19](https://github.com/squaro/slime/issues/19)) ([771f912](https://github.com/squaro/slime/commit/771f91224289cea4a679729f488facf4c855abe2))
+
 # [1.6.0](https://github.com/squaro/slime/compare/v1.5.0...v1.6.0) (2021-03-25)
 
 
