@@ -5,6 +5,7 @@ const ModalButton = styled.button`
   padding: 20px 72px;
   margin-top: 12px;
   border-radius: 10px;
+  background-color: #9E9E9E;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
   border: 0 none;
   font-weight: bold;
