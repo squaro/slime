@@ -2,6 +2,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import strings from '../config/strings';
+import ModalButton from './ModalButton.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -33,23 +34,11 @@ const SupportText = styled(Text)`
   color: #9E9E9E;
 `;
 
-const Button = styled.button`
-  width: 100%;
-  padding: 20px 72px;
-  margin-top: 12px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+const CloseButton = styled(ModalButton)`
   background-color: #0D58BB;
-  border: 0 none;
-  font-weight: bold;
-  font-size: 16px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  cursor: pointer;
 
   &:active {
     background-color: #104D9E;
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
   }
 `;
 
@@ -79,9 +68,9 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
       <SupportText data-testid="wake-lock-modal-clarification-text">
         {supportText}
       </SupportText>
-      <Button onClick={onClose} data-testid="wake-lock-modal-close-button">
+      <CloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
         {closeButtonText}
-      </Button>
+      </CloseButton>
     </Wrapper>
   );
 };
