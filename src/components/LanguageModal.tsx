@@ -30,7 +30,7 @@ const LanguagesList = styled.div`
   padding: 16px 0 24px 0;
 `;
 
-const CloseButton = styled(ModalButton)`
+const ModalCloseButton = styled(ModalButton)`
   background-color: #DC7E13;
 
   &:active {
@@ -87,9 +87,9 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
           />
         ))}
       </LanguagesList>
-      <CloseButton onClick={onClose} data-testid="language-modal-close-button">
+      <ModalCloseButton onClick={onClose} data-testid="language-modal-close-button">
         {closeButtonText}
-      </CloseButton>
+      </ModalCloseButton>
     </Wrapper>
   );
 };

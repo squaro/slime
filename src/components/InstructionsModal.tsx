@@ -29,7 +29,7 @@ const TapScreenImage = styled(TapScreen)`
   margin: 12px;
 `;
 
-const CloseButton = styled(ModalButton)`
+const ModalCloseButton = styled(ModalButton)`
   background-color: #0DBB13;
 
   &:active {
@@ -56,9 +56,9 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
         <Trans i18nKey={strings.INSTRUCTIONS_MODAL_TEXT} components={[<strong />]} />
       </Text>
       <TapScreenImage data-testid="instructions-modal-tap-screen-image" />
-      <CloseButton onClick={onClose} data-testid="instructions-modal-close-button">
+      <ModalCloseButton onClick={onClose} data-testid="instructions-modal-close-button">
         {closeButtonText}
-      </CloseButton>
+      </ModalCloseButton>
     </Wrapper>
   );
 };

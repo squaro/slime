@@ -30,7 +30,7 @@ const SupportText = styled(Text)`
   color: #9E9E9E;
 `;
 
-const CloseButton = styled(ModalButton)`
+const ModalCloseButton = styled(ModalButton)`
   background-color: #0D58BB;
 
   &:active {
@@ -64,9 +64,9 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
       <SupportText data-testid="wake-lock-modal-clarification-text">
         {supportText}
       </SupportText>
-      <CloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
+      <ModalCloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
         {closeButtonText}
-      </CloseButton>
+      </ModalCloseButton>
     </Wrapper>
   );
 };
