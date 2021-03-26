@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import strings from '../config/strings';
 import ModalButton from './ModalButton.styles';
+import ModalTitle from './ModalTitle.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -18,11 +19,6 @@ const Wrapper = Modal.styled`
   user-select: none;
 `;
 
-const Title = styled.h3`
-  margin-top: 0;
-  text-transform: uppercase;
-`;
-
 const Text = styled.p`
   margin-top: 0;
   text-align: left;
@@ -34,7 +30,7 @@ const SupportText = styled(Text)`
   color: #9E9E9E;
 `;
 
-const CloseButton = styled(ModalButton)`
+const ModalCloseButton = styled(ModalButton)`
   background-color: #0D58BB;
 
   &:active {
@@ -56,9 +52,9 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
 
   return (
     <Wrapper isOpen={isOpen} data-testid="wake-lock-modal">
-      <Title data-testid="wake-lock-modal-title">
+      <ModalTitle data-testid="wake-lock-modal-title">
         {titleText}
-      </Title>
+      </ModalTitle>
       <Text data-testid="wake-lock-modal-feature-text">
         <Trans i18nKey={strings.WAKE_LOCK_MODAL_FEATURE} components={[<strong />]} />
       </Text>
@@ -68,9 +64,9 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
       <SupportText data-testid="wake-lock-modal-clarification-text">
         {supportText}
       </SupportText>
-      <CloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
+      <ModalCloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
         {closeButtonText}
-      </CloseButton>
+      </ModalCloseButton>
     </Wrapper>
   );
 };

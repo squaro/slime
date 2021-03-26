@@ -4,6 +4,7 @@ import Modal from 'styled-react-modal';
 import { ReactComponent as TapScreen } from '../assets/instructions/tap-screen.svg';
 import strings from '../config/strings';
 import ModalButton from './ModalButton.styles';
+import ModalTitle from './ModalTitle.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -19,11 +20,6 @@ const Wrapper = Modal.styled`
   user-select: none;
 `;
 
-const Title = styled.h3`
-  margin: 0;
-  text-transform: uppercase;
-`;
-
 const Text = styled.p`
   text-align: center;
   padding: 0 32px;
@@ -33,7 +29,7 @@ const TapScreenImage = styled(TapScreen)`
   margin: 12px;
 `;
 
-const CloseButton = styled(ModalButton)`
+const ModalCloseButton = styled(ModalButton)`
   background-color: #0DBB13;
 
   &:active {
@@ -53,16 +49,16 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
 
   return (
     <Wrapper isOpen={isOpen} data-testid="instructions-modal">
-      <Title data-testid="instructions-modal-title">
+      <ModalTitle data-testid="instructions-modal-title">
         {titleText}
-      </Title>
+      </ModalTitle>
       <Text data-testid="instructions-modal-text">
         <Trans i18nKey={strings.INSTRUCTIONS_MODAL_TEXT} components={[<strong />]} />
       </Text>
       <TapScreenImage data-testid="instructions-modal-tap-screen-image" />
-      <CloseButton onClick={onClose} data-testid="instructions-modal-close-button">
+      <ModalCloseButton onClick={onClose} data-testid="instructions-modal-close-button">
         {closeButtonText}
-      </CloseButton>
+      </ModalCloseButton>
     </Wrapper>
   );
 };
