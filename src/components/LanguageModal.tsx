@@ -5,6 +5,7 @@ import languages, { Language } from '../config/languages';
 import strings from '../config/strings';
 import { updateDOMLanguage } from '../utils/i18n';
 import LanguageItem from './LanguageItem';
+import ModalButton from './ModalButton.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -33,23 +34,11 @@ const LanguagesList = styled.div`
   padding: 16px 0 24px 0;
 `;
 
-const Button = styled.button`
-  width: 100%;
-  padding: 20px 72px;
-  margin-top: 12px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+const CloseButton = styled(ModalButton)`
   background-color: #DC7E13;
-  border: 0 none;
-  font-weight: bold;
-  font-size: 16px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  cursor: pointer;
 
   &:active {
     background-color: #B9701C;
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
   }
 `;
 
@@ -102,9 +91,9 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
           />
         ))}
       </LanguagesList>
-      <Button onClick={onClose} data-testid="language-modal-close-button">
+      <CloseButton onClick={onClose} data-testid="language-modal-close-button">
         {closeButtonText}
-      </Button>
+      </CloseButton>
     </Wrapper>
   );
 };

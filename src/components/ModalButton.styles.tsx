@@ -12,9 +12,10 @@ const ModalButton = styled.button`
   color: #FFFFFF;
   text-transform: uppercase;
   cursor: pointer;
+  outline: none;
 
   &:active {
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
   }
 `;
 
