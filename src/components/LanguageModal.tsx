@@ -5,21 +5,12 @@ import languages, { Language } from '../config/languages';
 import strings from '../config/strings';
 import { updateDOMLanguage } from '../utils/i18n';
 import LanguageItem from './LanguageItem';
+import ModalBase from './ModalBase.styles';
 import ModalButton from './ModalButton.styles';
 import ModalTitle from './ModalTitle.styles';
 
-const Wrapper = Modal.styled`
-  width: 80vmin;
-  max-width: 288px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #424242;
-  border: 2px solid #DC7E13;
-  border-radius: 15px;
-  user-select: none;
+const ModalStyles = styled(ModalBase)`
+  border-color: #DC7E13;
 `;
 
 const LanguagesList = styled.div`
@@ -72,25 +63,27 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   };
 
   return (
-    <Wrapper isOpen={isOpen} data-testid="language-modal">
-      <ModalTitle data-testid="language-modal-title">
-        {titleText}
-      </ModalTitle>
-      <LanguagesList data-testid="language-modal-languages-list">
-        {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
-          <LanguageItem
-            key={code}
-            code={code}
-            selected={selected}
-            string={string}
-            onClick={() => changeLanguage(code)}
-          />
-        ))}
-      </LanguagesList>
-      <ModalCloseButton onClick={onClose} data-testid="language-modal-close-button">
-        {closeButtonText}
-      </ModalCloseButton>
-    </Wrapper>
+    <Modal isOpen={isOpen}>
+      <ModalStyles data-testid="language-modal">
+        <ModalTitle data-testid="language-modal-title">
+          {titleText}
+        </ModalTitle>
+        <LanguagesList data-testid="language-modal-languages-list">
+          {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
+            <LanguageItem
+              key={code}
+              code={code}
+              selected={selected}
+              string={string}
+              onClick={() => changeLanguage(code)}
+            />
+          ))}
+        </LanguagesList>
+        <ModalCloseButton onClick={onClose} data-testid="language-modal-close-button">
+          {closeButtonText}
+        </ModalCloseButton>
+      </ModalStyles>
+    </Modal>
   );
 };
 

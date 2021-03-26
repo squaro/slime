@@ -7,7 +7,7 @@ import {
 import styled from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import GlobalStyles from './components/GlobalStyles';
-import ModalBackground from './components/ModalBackground';
+import ModalBackground from './components/ModalBackground.styles';
 import routes from './config/routes';
 import RoundScreen from './screens/RoundScreen';
 

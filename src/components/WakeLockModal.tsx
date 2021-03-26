@@ -2,21 +2,12 @@ import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import strings from '../config/strings';
+import ModalBase from './ModalBase.styles';
 import ModalButton from './ModalButton.styles';
 import ModalTitle from './ModalTitle.styles';
 
-const Wrapper = Modal.styled`
-  width: 80vmin;
-  max-width: 288px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #424242;
-  border: 2px solid #0D58BB;
-  border-radius: 15px;
-  user-select: none;
+const ModalStyles = styled(ModalBase)`
+  border-color: #0D58BB;
 `;
 
 const Text = styled.p`
@@ -51,23 +42,25 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
   const closeButtonText = t(strings.WAKE_LOCK_MODAL_CLOSE_BUTTON);
 
   return (
-    <Wrapper isOpen={isOpen} data-testid="wake-lock-modal">
-      <ModalTitle data-testid="wake-lock-modal-title">
-        {titleText}
-      </ModalTitle>
-      <Text data-testid="wake-lock-modal-feature-text">
-        <Trans i18nKey={strings.WAKE_LOCK_MODAL_FEATURE} components={[<strong />]} />
-      </Text>
-      <Text data-testid="wake-lock-modal-phone-text">
-        {phoneText}
-      </Text>
-      <SupportText data-testid="wake-lock-modal-clarification-text">
-        {supportText}
-      </SupportText>
-      <ModalCloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
-        {closeButtonText}
-      </ModalCloseButton>
-    </Wrapper>
+    <Modal isOpen={isOpen}>
+      <ModalStyles data-testid="wake-lock-modal">
+        <ModalTitle data-testid="wake-lock-modal-title">
+          {titleText}
+        </ModalTitle>
+        <Text data-testid="wake-lock-modal-feature-text">
+          <Trans i18nKey={strings.WAKE_LOCK_MODAL_FEATURE} components={[<strong />]} />
+        </Text>
+        <Text data-testid="wake-lock-modal-phone-text">
+          {phoneText}
+        </Text>
+        <SupportText data-testid="wake-lock-modal-clarification-text">
+          {supportText}
+        </SupportText>
+        <ModalCloseButton onClick={onClose} data-testid="wake-lock-modal-close-button">
+          {closeButtonText}
+        </ModalCloseButton>
+      </ModalStyles>
+    </Modal>
   );
 };
 
