@@ -3,21 +3,12 @@ import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import { ReactComponent as TapScreen } from '../assets/instructions/tap-screen.svg';
 import strings from '../config/strings';
+import ModalBase from './ModalBase.styles';
 import ModalButton from './ModalButton.styles';
 import ModalTitle from './ModalTitle.styles';
 
-const Wrapper = Modal.styled`
-  width: 80vmin;
-  max-width: 288px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #424242;
-  border: 2px solid #0DBB13;
-  border-radius: 15px;
-  user-select: none;
+const ModalStyles = styled(ModalBase)`
+  border-color: #0DBB13;
 `;
 
 const Text = styled.p`
@@ -48,18 +39,20 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
   const closeButtonText = t(strings.INSTRUCTIONS_MODAL_CLOSE_BUTTON);
 
   return (
-    <Wrapper isOpen={isOpen} data-testid="instructions-modal">
-      <ModalTitle data-testid="instructions-modal-title">
-        {titleText}
-      </ModalTitle>
-      <Text data-testid="instructions-modal-text">
-        <Trans i18nKey={strings.INSTRUCTIONS_MODAL_TEXT} components={[<strong />]} />
-      </Text>
-      <TapScreenImage data-testid="instructions-modal-tap-screen-image" />
-      <ModalCloseButton onClick={onClose} data-testid="instructions-modal-close-button">
-        {closeButtonText}
-      </ModalCloseButton>
-    </Wrapper>
+    <Modal isOpen={isOpen} data-testid="instructions-modal">
+      <ModalStyles>
+        <ModalTitle data-testid="instructions-modal-title">
+          {titleText}
+        </ModalTitle>
+        <Text data-testid="instructions-modal-text">
+          <Trans i18nKey={strings.INSTRUCTIONS_MODAL_TEXT} components={[<strong />]} />
+        </Text>
+        <TapScreenImage data-testid="instructions-modal-tap-screen-image" />
+        <ModalCloseButton onClick={onClose} data-testid="instructions-modal-close-button">
+          {closeButtonText}
+        </ModalCloseButton>
+      </ModalStyles>
+    </Modal>
   );
 };
 
