@@ -6,6 +6,7 @@ import strings from '../config/strings';
 import { updateDOMLanguage } from '../utils/i18n';
 import LanguageItem from './LanguageItem';
 import ModalButton from './ModalButton.styles';
+import ModalTitle from './ModalTitle.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -19,11 +20,6 @@ const Wrapper = Modal.styled`
   border: 2px solid #DC7E13;
   border-radius: 15px;
   user-select: none;
-`;
-
-const Title = styled.h3`
-  margin-top: 0;
-  text-transform: uppercase;
 `;
 
 const LanguagesList = styled.div`
@@ -77,9 +73,9 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
 
   return (
     <Wrapper isOpen={isOpen} data-testid="language-modal">
-      <Title data-testid="language-modal-title">
+      <ModalTitle data-testid="language-modal-title">
         {titleText}
-      </Title>
+      </ModalTitle>
       <LanguagesList data-testid="language-modal-languages-list">
         {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
           <LanguageItem

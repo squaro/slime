@@ -4,6 +4,7 @@ import Modal from 'styled-react-modal';
 import { ReactComponent as TapScreen } from '../assets/instructions/tap-screen.svg';
 import strings from '../config/strings';
 import ModalButton from './ModalButton.styles';
+import ModalTitle from './ModalTitle.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -17,11 +18,6 @@ const Wrapper = Modal.styled`
   border: 2px solid #0DBB13;
   border-radius: 15px;
   user-select: none;
-`;
-
-const Title = styled.h3`
-  margin: 0;
-  text-transform: uppercase;
 `;
 
 const Text = styled.p`
@@ -53,9 +49,9 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
 
   return (
     <Wrapper isOpen={isOpen} data-testid="instructions-modal">
-      <Title data-testid="instructions-modal-title">
+      <ModalTitle data-testid="instructions-modal-title">
         {titleText}
-      </Title>
+      </ModalTitle>
       <Text data-testid="instructions-modal-text">
         <Trans i18nKey={strings.INSTRUCTIONS_MODAL_TEXT} components={[<strong />]} />
       </Text>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import strings from '../config/strings';
 import ModalButton from './ModalButton.styles';
+import ModalTitle from './ModalTitle.styles';
 
 const Wrapper = Modal.styled`
   width: 80vmin;
@@ -16,11 +17,6 @@ const Wrapper = Modal.styled`
   border: 2px solid #0D58BB;
   border-radius: 15px;
   user-select: none;
-`;
-
-const Title = styled.h3`
-  margin-top: 0;
-  text-transform: uppercase;
 `;
 
 const Text = styled.p`
@@ -56,9 +52,9 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
 
   return (
     <Wrapper isOpen={isOpen} data-testid="wake-lock-modal">
-      <Title data-testid="wake-lock-modal-title">
+      <ModalTitle data-testid="wake-lock-modal-title">
         {titleText}
-      </Title>
+      </ModalTitle>
       <Text data-testid="wake-lock-modal-feature-text">
         <Trans i18nKey={strings.WAKE_LOCK_MODAL_FEATURE} components={[<strong />]} />
       </Text>
