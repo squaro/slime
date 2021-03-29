@@ -4,8 +4,11 @@ import Modal from './Modal';
 import strings from '../config/strings';
 
 const Text = styled.p`
-  margin-top: 0;
   text-align: left;
+
+  &:not(:first-child) {
+    margin-top: 0;
+  }
 `;
 
 const SupportText = styled(Text)`
