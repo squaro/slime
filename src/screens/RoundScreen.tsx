@@ -1,5 +1,5 @@
-import { FileLock2 } from '@styled-icons/bootstrap/FileLock2';
-import { Globe } from '@styled-icons/bootstrap/Globe';
+import { FileLock2 as WakeLockIcon } from '@styled-icons/bootstrap/FileLock2';
+import { Globe as LanguageIcon } from '@styled-icons/bootstrap/Globe';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -98,12 +98,12 @@ const RoundScreen: React.FunctionComponent = () => {
       <Screen data-testid="round-screen">
         <Header>
           <HeaderButton
-            icon={<FileLock2 size="20" title="Wake Lock" />}
+            icon={<WakeLockIcon size="20" title="Wake Lock" />}
             text={wakeLockStatusText}
             onClick={openWakeLockModal}
           />
           <HeaderButton
-            icon={<Globe size="16" title="Language" />}
+            icon={<LanguageIcon size="16" title="Language" />}
             text={languageShortText}
             onClick={openLanguageModal}
           />
