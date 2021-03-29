@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ModalProvider } from 'styled-react-modal';
+import strings from '../../config/strings';
 import WakeLockModal from '../WakeLockModal';
 
 test("doesn't render the wake lock modal", () => {
@@ -12,10 +13,10 @@ test("doesn't render the wake lock modal", () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByTestId('wake-lock-modal')).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 });
 
-test('renders the wake lock modal', () => {
+test('renders the wake lock modal with all children', () => {
   const isOpen = true;
   const onClose = jest.fn();
 
@@ -25,15 +26,15 @@ test('renders the wake lock modal', () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByTestId('wake-lock-modal')).toBeInTheDocument();
-  expect(screen.queryByTestId('wake-lock-modal-title')).toBeInTheDocument();
-  expect(screen.queryByTestId('wake-lock-modal-feature-text')).toBeInTheDocument();
-  expect(screen.queryByTestId('wake-lock-modal-phone-text')).toBeInTheDocument();
-  expect(screen.queryByTestId('wake-lock-modal-clarification-text')).toBeInTheDocument();
-  expect(screen.queryByTestId('wake-lock-modal-close-button')).toBeInTheDocument();
+  expect(screen.queryByRole('dialog')).toBeInTheDocument();
+  expect(screen.queryByText(strings.WAKE_LOCK_MODAL_TITLE)).toBeInTheDocument();
+  expect(screen.queryByText(strings.WAKE_LOCK_MODAL_FEATURE)).toBeInTheDocument();
+  expect(screen.queryByText(strings.WAKE_LOCK_MODAL_PHONE)).toBeInTheDocument();
+  expect(screen.queryByText(strings.WAKE_LOCK_MODAL_SUPPORT)).toBeInTheDocument();
+  expect(screen.queryByText(strings.WAKE_LOCK_MODAL_CLOSE_BUTTON)).toBeInTheDocument();
 });
 
-test('calls the on close callback when pressed the button', async () => {
+test('calls the onClose callback when the close button is pressed', () => {
   const isOpen = true;
   const onClose = jest.fn();
 
@@ -43,7 +44,7 @@ test('calls the on close callback when pressed the button', async () => {
     </ModalProvider>
   );
 
-  const closeButton = screen.getByTestId('wake-lock-modal-close-button');
+  const closeButton = screen.getByRole('button', { name: /close/i });
   fireEvent.click(closeButton);
   expect(onClose).toHaveBeenCalled();
 });
