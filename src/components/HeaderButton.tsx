@@ -11,13 +11,11 @@ const Wrapper = styled.button`
   outline: none;
   cursor: pointer;
   user-select: none;
-`;
-
-const Icon = styled.span`
+  font-size: 12px;
   color: #757575;
 
-  ${Wrapper}:focus &,
-  ${Wrapper}:hover & {
+  &:focus,
+  &:hover {
     color: #BDBDBD;
   }
 `;
@@ -26,22 +24,12 @@ const Separator = styled.div`
   width: 3px;
   height: 3px;
   margin: 0 6px;
-  background-color: #757575;
   border-radius: 3px;
+  background-color: #757575;
 
   ${Wrapper}:focus &,
   ${Wrapper}:hover & {
     background-color: #BDBDBD;
-  }
-`;
-
-const Text = styled.span`
-  color: #757575;
-  font-size: 12px;
-
-  ${Wrapper}:focus &,
-  ${Wrapper}:hover & {
-    color: #BDBDBD;
   }
 `;
 
@@ -54,9 +42,9 @@ type HeaderButtonProps = {
 function HeaderButton({ icon, text, onClick }: HeaderButtonProps) {
   return (
     <Wrapper onClick={onClick}>
-      <Icon>{icon}</Icon>
+      {icon}
       <Separator />
-      <Text>{text}</Text>
+      {text}
     </Wrapper>
   );
 }
