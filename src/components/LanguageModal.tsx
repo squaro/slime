@@ -1,17 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import Modal from 'styled-react-modal';
+import Modal from './Modal';
 import languages, { Language } from '../config/languages';
 import strings from '../config/strings';
 import { updateDOMLanguage } from '../utils/i18n';
 import LanguageItem from './LanguageItem';
-import ModalBase from './ModalBase.styles';
-import ModalButton from './ModalButton.styles';
-import ModalTitle from './ModalTitle.styles';
-
-const ModalStyles = styled(ModalBase)`
-  border-color: #DC7E13;
-`;
 
 const LanguagesList = styled.div`
   width: 100%;
@@ -21,23 +14,15 @@ const LanguagesList = styled.div`
   padding: 16px 0 24px 0;
 `;
 
-const ModalCloseButton = styled(ModalButton)`
-  background-color: #DC7E13;
-
-  &:active {
-    background-color: #B9701C;
-  }
-`;
-
-type LanguageModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-};
-
 type AvailableLanguage = {
   code: string;
   selected: boolean;
   string: string;
+};
+
+type LanguageModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
 };
 
 // TODO: Test selected language
@@ -46,6 +31,8 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   const { t, i18n } = useTranslation();
   const titleText = t(strings.LANGUAGE_MODAL_TITLE);
   const closeButtonText = t(strings.LANGUAGE_MODAL_CLOSE_BUTTON);
+  const primaryColor = '#DC7E13';
+  const primaryDarkColor = '#B9701C';
 
   const availableLanguages: AvailableLanguage[] = languages.map(
     (language: Language) => ({
@@ -63,26 +50,25 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   };
 
   return (
-    <Modal isOpen={isOpen}>
-      <ModalStyles data-testid="language-modal">
-        <ModalTitle data-testid="language-modal-title">
-          {titleText}
-        </ModalTitle>
-        <LanguagesList data-testid="language-modal-languages-list">
-          {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
-            <LanguageItem
-              key={code}
-              code={code}
-              selected={selected}
-              string={string}
-              onClick={() => changeLanguage(code)}
-            />
-          ))}
-        </LanguagesList>
-        <ModalCloseButton onClick={onClose} data-testid="language-modal-close-button">
-          {closeButtonText}
-        </ModalCloseButton>
-      </ModalStyles>
+    <Modal
+      closeButtonLabel={closeButtonText}
+      isOpen={isOpen}
+      primaryColor={primaryColor}
+      primaryDarkColor={primaryDarkColor}
+      titleLabel={titleText}
+      onClose={onClose}
+    >
+      <LanguagesList role="list">
+        {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
+          <LanguageItem
+            key={code}
+            code={code}
+            selected={selected}
+            string={string}
+            onClick={() => changeLanguage(code)}
+          />
+        ))}
+      </LanguagesList>
     </Modal>
   );
 };
