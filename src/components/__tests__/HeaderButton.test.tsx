@@ -10,15 +10,15 @@ test('renders the header button and calls the onClick callback after the button 
   const text = 'My text';
   const onClick = jest.fn();
 
-  const { container } = render(
+  render(
     <HeaderButton icon={icon} text={text} onClick={onClick} />
   );
 
+  // Check for icon
   expect(screen.queryByTitle(/icon/i)).toBeInTheDocument();
-  expect(screen.queryByText(/my text/i)).toBeInTheDocument();
 
-  // TODO: Investigate how to get the parent element without using querySelector()
-  const headerButton = container.querySelector('button');
-  fireEvent.click(headerButton!);
+  // Check for button & text simultaneously
+  const headerButton = screen.getByRole('button', { name: /my text/i });
+  fireEvent.click(headerButton);
   expect(onClick).toHaveBeenCalled();
 });
