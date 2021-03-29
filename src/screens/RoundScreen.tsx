@@ -1,12 +1,15 @@
+import { FileLock2 } from '@styled-icons/bootstrap/FileLock2';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import LanguageButton from '../components/LanguageButton';
+import HeaderButton from '../components/HeaderButton';
 import InstructionsModal from '../components/InstructionsModal';
+import LanguageButton from '../components/LanguageButton';
 import LanguageModal from '../components/LanguageModal';
 import RoundDirectionArrow from '../components/RoundDirectionArrow';
 import Screen from '../components/Screen';
-import WakeLockButton from '../components/WakeLockButton';
 import WakeLockModal from '../components/WakeLockModal';
+import strings from '../config/strings';
 import logger from '../utils/logger';
 import wakeLock from '../utils/wakeLock';
 
@@ -85,11 +88,19 @@ const RoundScreen: React.FunctionComponent = () => {
     }
   };
 
+  // Texts
+  const { t } = useTranslation();
+  const wakeLockStatusText = t(wakeLock.isEnabled ? strings.WAKE_LOCK_STATUS_ENABLED : strings.WAKE_LOCK_STATUS_DISABLED);
+
   return (
     <React.Fragment>
       <Screen data-testid="round-screen">
         <Header>
-          <WakeLockButton onClick={openWakeLockModal}/>
+          <HeaderButton
+            icon={<FileLock2 size="20" title="Wake Lock" />}
+            text={wakeLockStatusText}
+            onClick={openWakeLockModal}
+          />
           <LanguageButton onClick={openLanguageModal}/>
         </Header>
         <RoundDirectionArrowWrapper onClick={toggleDirection}>
