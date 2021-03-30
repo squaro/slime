@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import RoundDirectionArrow from '../components/RoundDirectionArrow';
+import SlimSpinArrow from '../components/SlimSpinArrow';
+import SpinArrow from '../components/SpinArrow';
+import unoColorsAnimation from '../styles/animations/unoColorsAnimation';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   flex-grow: 1;
   width: 100%;
   display: flex;
@@ -12,6 +14,16 @@ const Wrapper = styled.div`
 
   // Prevents the user to click the arrow outside this wrapper
   overflow: hidden;
+`;
+
+const RoundDirectionArrow = styled(SpinArrow)`
+  width: 90vmin;
+  height: 90vmin;
+
+  // Color animation
+  & svg path {
+    animation: ${unoColorsAnimation};
+  }
 `;
 
 function RoundScreen() {
@@ -24,8 +36,10 @@ function RoundScreen() {
   const toggleDirection = () => setRoundDirection(!roundDirection);
 
   return (
-    <Wrapper onClick={toggleDirection}>
-      <RoundDirectionArrow direction={roundDirection} />
+    <Wrapper role="region" onClick={toggleDirection}>
+      <RoundDirectionArrow role="checkbox" aria-checked={roundDirection}>
+        <SlimSpinArrow title="arrow" />
+      </RoundDirectionArrow>
     </Wrapper>
   );
 };

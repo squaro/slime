@@ -19,7 +19,7 @@ interface RoundDirectionArrowProps {
 }
 
 const RoundDirectionArrow: React.FunctionComponent<RoundDirectionArrowProps> = ({ direction }) => (
-  <Wrapper $direction={direction} data-testid="round-direction-arrow">
+  <Wrapper data-testid="round-direction-arrow">
     <SlimSpinArrow />
   </Wrapper>
 );

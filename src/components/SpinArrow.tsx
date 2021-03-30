@@ -1,28 +1,27 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import spinAnimation from '../styles/animations/spinAnimation';
 
-interface SpinArrowProps {
-  $direction?: boolean;
-}
-
-const SpinArrow = styled.div<SpinArrowProps>`
-  ${({ $direction }) => css`
+const SpinArrow = styled.div`
+  &[aria-checked="false"] {
     // Spin animation
-    animation: ${spinAnimation(!!$direction)};
+    animation: ${spinAnimation(false)};
 
     // Direction transform
-    ${!$direction && css`
-      & svg path {
-        // Assuming that the arrows are to the right by default,
-        // only the left arrow's path is transformed
-        transform: scaleX(-1) translateX(-100%);
-      }
-    `}
-  `}
+    & svg path {
+      // Assuming that the arrows are to the right by default,
+      // only the left arrow's path is transformed
+      transform: scaleX(-1) translateX(-100%);
+    }
+  }
+
+  &[aria-checked="true"] {
+    // Spin animation
+    animation: ${spinAnimation(true)};
+  }
 `;
 
 SpinArrow.defaultProps = {
-  $direction: true,
+  'aria-checked': true,
 };
 
 export default SpinArrow;

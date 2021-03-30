@@ -43,7 +43,7 @@ describe('SpinArrow', (): void => {
 
     // Act
     const { getByTestId } = render(
-      <SpinArrow $direction={direction} data-testid={spinArrowTestId}>
+      <SpinArrow aria-checked={direction} data-testid={spinArrowTestId}>
         <TestSVG />
       </SpinArrow>
     );
@@ -63,7 +63,7 @@ describe('SpinArrow', (): void => {
 
     // Act
     const { getByTestId } = render(
-      <SpinArrow $direction={direction} data-testid={spinArrowTestId}>
+      <SpinArrow aria-checked={direction} data-testid={spinArrowTestId}>
         <TestSVG />
       </SpinArrow>
     );
