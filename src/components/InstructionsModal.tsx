@@ -6,7 +6,6 @@ import strings from '../config/strings';
 
 const Text = styled.p`
   text-align: center;
-  padding: 0 32px;
 `;
 
 const TapScreenImage = styled(TapScreen)`
