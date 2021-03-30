@@ -70,8 +70,10 @@ type ModalProps = {
   onClose: () => void;
 };
 
-// TODO: Add missing optinal accessibility attributes (aria-describedby)
-// TODO: Test close button :active selector
+// TODO:
+//  * Test close button :active selector
+//  * Add missing optinal accessibility attributes (aria-describedby)
+//  * Investigate where to place role="dialog" and role="document" attributes
 function Modal({
   children,
   closeButtonLabel,
