@@ -2,11 +2,6 @@ import { FileLock2 as WakeLockIcon } from '@styled-icons/bootstrap/FileLock2';
 import { Globe as LanguageIcon } from '@styled-icons/bootstrap/Globe';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
 import styled from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import GlobalStyles from './components/GlobalStyles';
@@ -15,7 +10,6 @@ import InstructionsModal from './components/InstructionsModal';
 import LanguageModal from './components/LanguageModal';
 import ModalBackground from './components/ModalBackground.styles';
 import WakeLockModal from './components/WakeLockModal';
-import routes from './config/routes';
 import RoundScreen from './screens/RoundScreen';
 import logger from './utils/logger';
 import wakeLock from './utils/wakeLock';
@@ -104,13 +98,7 @@ function App() {
         </Header>
 
         <Content>
-          <Router>
-            <Switch>
-              <Route path={routes.home}>
-                <RoundScreen />
-              </Route>
-            </Switch>
-          </Router>
+          <RoundScreen />
         </Content>
 
         <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
