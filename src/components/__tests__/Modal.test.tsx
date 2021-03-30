@@ -5,6 +5,7 @@ import Modal from '../Modal';
 test("doesn't render the modal", () => {
   const closeButtonLabel = 'Close';
   const isOpen = false;
+  const name = 'test';
   const primaryColor = 'red';
   const primaryDarkColor = 'darkred';
   const titleLabel = 'Title';
@@ -15,6 +16,7 @@ test("doesn't render the modal", () => {
       <Modal
         closeButtonLabel={closeButtonLabel}
         isOpen={isOpen}
+        name={name}
         primaryColor={primaryColor}
         primaryDarkColor={primaryDarkColor}
         titleLabel={titleLabel}
@@ -31,6 +33,7 @@ test("doesn't render the modal", () => {
 test('renders the modal with the proper styles and children', () => {
   const closeButtonLabel = 'Close';
   const isOpen = true;
+  const name = 'test';
   const primaryColor = 'red';
   const primaryDarkColor = 'darkred';
   const titleLabel = 'Title';
@@ -41,6 +44,7 @@ test('renders the modal with the proper styles and children', () => {
       <Modal
         closeButtonLabel={closeButtonLabel}
         isOpen={isOpen}
+        name={name}
         primaryColor={primaryColor}
         primaryDarkColor={primaryDarkColor}
         titleLabel={titleLabel}
@@ -64,6 +68,7 @@ test('renders the modal with the proper styles and children', () => {
 test('calls the onClose callback when the close button is pressed', async () => {
   const closeButtonLabel = 'Close';
   const isOpen = true;
+  const name = 'test';
   const primaryColor = 'red';
   const primaryDarkColor = 'darkred';
   const titleLabel = 'Title';
@@ -74,6 +79,7 @@ test('calls the onClose callback when the close button is pressed', async () => 
       <Modal
         closeButtonLabel={closeButtonLabel}
         isOpen={isOpen}
+        name={name}
         primaryColor={primaryColor}
         primaryDarkColor={primaryDarkColor}
         titleLabel={titleLabel}

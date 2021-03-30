@@ -63,27 +63,35 @@ type ModalProps = {
   children: React.ReactNode;
   closeButtonLabel: string;
   isOpen: boolean;
+  name: string;
   primaryColor: string;
   primaryDarkColor: string;
   titleLabel: string;
   onClose: () => void;
 };
 
-// TODO: Add missing accessibility attributes (aria-labelledby / aria-describedby)
+// TODO: Add missing optinal accessibility attributes (aria-describedby)
 // TODO: Test close button :active selector
 function Modal({
   children,
   closeButtonLabel,
   isOpen,
+  name,
   primaryColor,
   primaryDarkColor,
   titleLabel,
   onClose
 }: ModalProps) {
+  const titleId = `${name}ModalTitle`;
+
   return (
     <StyledReactModal isOpen={isOpen}>
-      <ModalStyles borderColor={primaryColor} role="dialog">
-        <Title>
+      <ModalStyles
+        role="dialog"
+        aria-labelledby={titleId}
+        borderColor={primaryColor}
+      >
+        <Title id={titleId}>
           {titleLabel}
         </Title>
         <Content>
