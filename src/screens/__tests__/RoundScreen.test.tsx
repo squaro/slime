@@ -1,13 +1,19 @@
-import { render } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import RoundScreen from '../RoundScreen';
 
-describe('RoundScreen', (): void => {
-  it('renders the round screen component', (): void => {
-    // Act
-    const { getByText } = render(<RoundScreen />);
+test('renders the round screen component and toggles the direction of the round', () => {
+  render(
+    <RoundScreen />
+  );
 
-    // Assert
-    const arrowSvgElement = getByText(/slim-spin-arrow.svg/i);
-    expect(arrowSvgElement).toBeInTheDocument();
-  });
+  expect(screen.queryByTitle(/arrow/i)).toBeInTheDocument();
+  
+  const roundDirectionArrow = screen.getByRole('checkbox');
+  expect(roundDirectionArrow.getAttribute('aria-checked')).toEqual("true");
+  
+  // Toggle direction
+  const wrapper = screen.getByRole('region');
+  act(() => { fireEvent.click(wrapper); });
+
+  expect(roundDirectionArrow.getAttribute('aria-checked')).toEqual("false");
 });
