@@ -14,7 +14,7 @@ test("doesn't render the language modal", () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: strings.LANGUAGE_MODAL_TITLE })).not.toBeInTheDocument();
 });
 
 test('renders the language modal with all available languages', async () => {
@@ -27,7 +27,7 @@ test('renders the language modal with all available languages', async () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog')).toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: strings.LANGUAGE_MODAL_TITLE })).toBeInTheDocument();
   expect(screen.queryByRole('list')).toBeInTheDocument();
   expect(screen.queryByText(strings.LANGUAGE_MODAL_TITLE)).toBeInTheDocument();
   expect(screen.queryByText(strings.LANGUAGE_MODAL_CLOSE_BUTTON)).toBeInTheDocument();

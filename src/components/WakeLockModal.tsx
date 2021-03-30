@@ -28,6 +28,7 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
   const phoneText = t(strings.WAKE_LOCK_MODAL_PHONE);
   const supportText = t(strings.WAKE_LOCK_MODAL_SUPPORT);
   const closeButtonText = t(strings.WAKE_LOCK_MODAL_CLOSE_BUTTON);
+  const name = 'wakeLock';
   const primaryColor = '#0D58BB';
   const primaryDarkColor = '#104D9E';
 
@@ -35,6 +36,7 @@ function WakeLockModal({ isOpen, onClose }: WakeLockModalProps) {
     <Modal
       closeButtonLabel={closeButtonText}
       isOpen={isOpen}
+      name={name}
       primaryColor={primaryColor}
       primaryDarkColor={primaryDarkColor}
       titleLabel={titleText}

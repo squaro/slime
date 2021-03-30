@@ -21,6 +21,7 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
   const { t } = useTranslation();
   const titleLabel = t(strings.INSTRUCTIONS_MODAL_TITLE);
   const closeButtonLabel = t(strings.INSTRUCTIONS_MODAL_CLOSE_BUTTON);
+  const name = 'instructions';
   const primaryColor = '#0DBB13';
   const primaryDarkColor = '#0DAA12';
 
@@ -28,6 +29,7 @@ function InstructionsModal({ isOpen, onClose }: InstructionsModalProps) {
     <Modal
       closeButtonLabel={closeButtonLabel}
       isOpen={isOpen}
+      name={name}
       primaryColor={primaryColor}
       primaryDarkColor={primaryDarkColor}
       titleLabel={titleLabel}

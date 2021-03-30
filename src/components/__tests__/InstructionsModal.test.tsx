@@ -13,7 +13,7 @@ test("doesn't render the instructions modal", () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: strings.INSTRUCTIONS_MODAL_TITLE })).not.toBeInTheDocument();
 });
 
 test('renders the instructions modal with all children', () => {
@@ -26,7 +26,7 @@ test('renders the instructions modal with all children', () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog')).toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: strings.INSTRUCTIONS_MODAL_TITLE })).toBeInTheDocument();
   expect(screen.queryByText(/tap-screen.svg/i)).toBeInTheDocument();
   expect(screen.queryByText(strings.INSTRUCTIONS_MODAL_TITLE)).toBeInTheDocument();
   expect(screen.queryByText(strings.INSTRUCTIONS_MODAL_TEXT)).toBeInTheDocument();

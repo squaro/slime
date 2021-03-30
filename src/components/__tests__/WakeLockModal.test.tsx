@@ -13,7 +13,7 @@ test("doesn't render the wake lock modal", () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: strings.WAKE_LOCK_MODAL_TITLE })).not.toBeInTheDocument();
 });
 
 test('renders the wake lock modal with all children', () => {
@@ -26,7 +26,7 @@ test('renders the wake lock modal with all children', () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog')).toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: strings.WAKE_LOCK_MODAL_TITLE })).toBeInTheDocument();
   expect(screen.queryByText(strings.WAKE_LOCK_MODAL_TITLE)).toBeInTheDocument();
   expect(screen.queryByText(strings.WAKE_LOCK_MODAL_FEATURE)).toBeInTheDocument();
   expect(screen.queryByText(strings.WAKE_LOCK_MODAL_PHONE)).toBeInTheDocument();

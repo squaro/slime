@@ -31,6 +31,7 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   const { t, i18n } = useTranslation();
   const titleText = t(strings.LANGUAGE_MODAL_TITLE);
   const closeButtonText = t(strings.LANGUAGE_MODAL_CLOSE_BUTTON);
+  const name = 'language';
   const primaryColor = '#DC7E13';
   const primaryDarkColor = '#B9701C';
 
@@ -53,6 +54,7 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
     <Modal
       closeButtonLabel={closeButtonText}
       isOpen={isOpen}
+      name={name}
       primaryColor={primaryColor}
       primaryDarkColor={primaryDarkColor}
       titleLabel={titleText}
