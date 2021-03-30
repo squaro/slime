@@ -1,13 +1,10 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import RoundScreen from '../RoundScreen';
 
-describe('RoundScreen', (): void => {
-  it('renders the round screen component', (): void => {
-    // Act
-    const { getByText } = render(<RoundScreen />);
+test('renders the round screen component', () => {
+  render(
+    <RoundScreen />
+  );
 
-    // Assert
-    const arrowSvgElement = getByText(/slim-spin-arrow.svg/i);
-    expect(arrowSvgElement).toBeInTheDocument();
-  });
+  expect(screen.queryByText(/slim-spin-arrow.svg/i)).toBeInTheDocument();
 });
