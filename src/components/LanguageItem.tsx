@@ -54,6 +54,7 @@ function LanguageItem({ code, selected, string, onClick }: LanguageItemProps) {
 
   return (
     <Wrapper
+      role="listitem"
       $selected={selected}
       data-testid={`language-modal-language-${code.toLowerCase()}`}
       onClick={onClick}
