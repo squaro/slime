@@ -44,7 +44,7 @@ test('calls the onClose callback when the close button is pressed', () => {
     </ModalProvider>
   );
 
-  const closeButton = screen.getByRole('button', { name: /close/i });
+  const closeButton = screen.getByRole('button', { name: strings.WAKE_LOCK_MODAL_CLOSE_BUTTON });
   fireEvent.click(closeButton);
   expect(onClose).toHaveBeenCalled();
 });
