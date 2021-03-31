@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   background-color: #000;
 `;
 
-const Header = styled.div`
+const Header = styled.nav`
   width: 100%;
   height: 48px;
   padding: 0 4px;
@@ -34,7 +34,7 @@ const Header = styled.div`
   align-items: center;
 `;
 
-const Content = styled.div`
+const Content = styled.main`
   width: 100%;
   flex-grow: 1;
   display: flex;
@@ -43,9 +43,6 @@ const Content = styled.div`
   align-items: center;
 `;
 
-// TODO: Test GlobalStyles component
-// TODO: Test ModalProvider component
-// TODO: Analyze if the router will be needed further
 function App() {
   const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(true);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
