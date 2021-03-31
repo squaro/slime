@@ -1,8 +1,4 @@
-import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
-
-// TODO: Investigate how to load flags dynamically
-import flags from '../assets/flags';
 
 type WrapperProps = {
   $selected?: boolean;
@@ -42,16 +38,13 @@ const LanguageText = styled.p`
 
 type LanguageItemProps = {
   code: string;
+  flag: string;
+  label: string;
   selected: boolean;
-  string: string;
   onClick: () => void;
 };
 
-function LanguageItem({ code, selected, string, onClick }: LanguageItemProps) {
-  const { t } = useTranslation();
-  const languageFlag = flags[code];
-  const languageLabel = t(string as any);
-
+function LanguageItem({ code, flag, label, selected, onClick }: LanguageItemProps) {
   return (
     <Wrapper
       role="listitem"
@@ -59,8 +52,10 @@ function LanguageItem({ code, selected, string, onClick }: LanguageItemProps) {
       data-testid={`language-modal-language-${code.toLowerCase()}`}
       onClick={onClick}
     >
-      <LanguageFlag src={languageFlag} alt={languageLabel} title={languageLabel} />
-      <LanguageText>{languageLabel}</LanguageText>
+      <LanguageFlag src={flag} alt={label} title={label} />
+      <LanguageText>
+        {label}
+      </LanguageText>
     </Wrapper>
   );
 }

@@ -1,21 +1,3 @@
-export type Language = {
-  code: string;
-  string: string;
-};
+export const availableLanguages = ['en', 'es'] as const;
 
-// List of languages
-const languages: Language[] = [
-  {
-    code: 'en-US',
-    string: 'lang.en-US',
-  },
-  {
-    code: 'es-ES',
-    string: 'lang.es-ES',
-  },
-];
-
-// Default language
-export const defaultLanguage = 'en-US';
-
-export default languages;
+export const defaultLanguage = 'en' as const;

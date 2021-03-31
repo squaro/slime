@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ModalProvider } from 'styled-react-modal';
-import languages from '../../config/languages';
+import { availableLanguages } from '../../config/languages';
 import LanguageModal from '../LanguageModal';
 
 test("doesn't render the language modal", () => {
@@ -32,8 +32,8 @@ test('renders the language modal with all available languages', async () => {
   expect(screen.queryByText('languageModal.close')).toBeInTheDocument();
 
   // Verify that all languages are displayed
-  const availableLanguages = await screen.findAllByRole('listitem');
-  expect(availableLanguages.length).toEqual(languages.length);
+  const languageListItems = await screen.findAllByRole('listitem');
+  expect(languageListItems.length).toEqual(availableLanguages.length);
 });
 
 test('calls the onClose callback when the close button is pressed', () => {

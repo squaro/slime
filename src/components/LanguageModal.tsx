@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Modal from './Modal';
-import languages, { Language } from '../config/languages';
+import flags from '../assets/flags';
+import { availableLanguages } from '../config/languages';
 import { updateDOMLanguage } from '../utils/i18n';
 import LanguageItem from './LanguageItem';
 
@@ -13,10 +14,11 @@ const LanguagesList = styled.div`
   padding: 16px 0 24px 0;
 `;
 
-type AvailableLanguage = {
+type Language = {
   code: string;
+  flag: string;
+  label: string;
   selected: boolean;
-  string: string;
 };
 
 type LanguageModalProps = {
@@ -34,10 +36,12 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   const primaryColor = '#DC7E13';
   const primaryDarkColor = '#B9701C';
 
-  const availableLanguages: AvailableLanguage[] = languages.map(
-    (language: Language) => ({
-      ...language,
-      selected: language.code === i18n.language,
+  const languages: Language[] = availableLanguages.map(
+    (code) => ({
+      code,
+      flag: flags[code],
+      label: t(`lang.${code}` as const),
+      selected: i18n.language.includes(code),
     })
   );
 
@@ -60,12 +64,13 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
       onClose={onClose}
     >
       <LanguagesList role="list">
-        {availableLanguages.map(({ code, selected, string }: AvailableLanguage) => (
+        {languages.map(({ code, flag, label, selected }: Language) => (
           <LanguageItem
             key={code}
             code={code}
+            flag={flag}
+            label={label}
             selected={selected}
-            string={string}
             onClick={() => changeLanguage(code)}
           />
         ))}

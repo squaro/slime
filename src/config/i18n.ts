@@ -2,17 +2,17 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import { updateDOMLanguage } from '../utils/i18n';
-import { defaultLanguage } from './languages';
-import enTranslation from './locales/en/translation.json';
-import esTranslation from './locales/es/translation.json';
+import { availableLanguages, defaultLanguage } from './languages';
+import translationEn from './locales/en/translation.json';
+import translationEs from './locales/es/translation.json';
 
 // Define resources
 export const resources = {
   en: {
-    translation: enTranslation,
+    translation: translationEn,
   },
   es: {
-    translation: esTranslation,
+    translation: translationEs,
   },
 } as const;
 
@@ -26,6 +26,8 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     resources,
+    supportedLngs: (availableLanguages as unknown) as string[],
+    nonExplicitSupportedLngs: true,
   });
 
 // Update DOM language with current language
