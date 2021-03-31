@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ModalProvider } from 'styled-react-modal';
 import languages from '../../config/languages';
-import strings from '../../config/strings';
 import LanguageModal from '../LanguageModal';
 
 test("doesn't render the language modal", () => {
@@ -14,7 +13,7 @@ test("doesn't render the language modal", () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog', { name: strings.LANGUAGE_MODAL_TITLE })).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: 'languageModal.title' })).not.toBeInTheDocument();
 });
 
 test('renders the language modal with all available languages', async () => {
@@ -27,10 +26,10 @@ test('renders the language modal with all available languages', async () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog', { name: strings.LANGUAGE_MODAL_TITLE })).toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: 'languageModal.title' })).toBeInTheDocument();
   expect(screen.queryByRole('list')).toBeInTheDocument();
-  expect(screen.queryByText(strings.LANGUAGE_MODAL_TITLE)).toBeInTheDocument();
-  expect(screen.queryByText(strings.LANGUAGE_MODAL_CLOSE_BUTTON)).toBeInTheDocument();
+  expect(screen.queryByText('languageModal.title')).toBeInTheDocument();
+  expect(screen.queryByText('languageModal.close')).toBeInTheDocument();
 
   // Verify that all languages are displayed
   const availableLanguages = await screen.findAllByRole('listitem');
@@ -47,7 +46,7 @@ test('calls the onClose callback when the close button is pressed', () => {
     </ModalProvider>
   );
 
-  const closeButton = screen.getByRole('button', { name: strings.LANGUAGE_MODAL_CLOSE_BUTTON });
+  const closeButton = screen.getByRole('button', { name: 'languageModal.close' });
   fireEvent.click(closeButton);
   expect(onClose).toHaveBeenCalled();
 });

@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Modal from './Modal';
 import languages, { Language } from '../config/languages';
-import strings from '../config/strings';
 import { updateDOMLanguage } from '../utils/i18n';
 import LanguageItem from './LanguageItem';
 
@@ -29,8 +28,8 @@ type LanguageModalProps = {
 // TODO: Test changing language
 function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   const { t, i18n } = useTranslation();
-  const titleText = t(strings.LANGUAGE_MODAL_TITLE);
-  const closeButtonText = t(strings.LANGUAGE_MODAL_CLOSE_BUTTON);
+  const titleLabel = t('languageModal.title');
+  const closeButtonLabel = t('languageModal.close');
   const name = 'language';
   const primaryColor = '#DC7E13';
   const primaryDarkColor = '#B9701C';
@@ -52,12 +51,12 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
 
   return (
     <Modal
-      closeButtonLabel={closeButtonText}
+      closeButtonLabel={closeButtonLabel}
       isOpen={isOpen}
       name={name}
       primaryColor={primaryColor}
       primaryDarkColor={primaryDarkColor}
-      titleLabel={titleText}
+      titleLabel={titleLabel}
       onClose={onClose}
     >
       <LanguagesList role="list">

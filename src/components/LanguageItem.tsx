@@ -50,7 +50,7 @@ type LanguageItemProps = {
 function LanguageItem({ code, selected, string, onClick }: LanguageItemProps) {
   const { t } = useTranslation();
   const languageFlag = flags[code];
-  const languageText = t(string);
+  const languageLabel = t(string as any);
 
   return (
     <Wrapper
@@ -59,8 +59,8 @@ function LanguageItem({ code, selected, string, onClick }: LanguageItemProps) {
       data-testid={`language-modal-language-${code.toLowerCase()}`}
       onClick={onClick}
     >
-      <LanguageFlag src={languageFlag} alt={languageText} title={languageText} />
-      <LanguageText>{languageText}</LanguageText>
+      <LanguageFlag src={languageFlag} alt={languageLabel} title={languageLabel} />
+      <LanguageText>{languageLabel}</LanguageText>
     </Wrapper>
   );
 }

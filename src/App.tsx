@@ -13,7 +13,6 @@ import WakeLockModal from './components/WakeLockModal';
 import RoundScreen from './screens/RoundScreen';
 import logger from './utils/logger';
 import wakeLock from './utils/wakeLock';
-import strings from './config/strings';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -50,8 +49,10 @@ function App() {
 
   // Texts
   const { t, i18n } = useTranslation();
-  const wakeLockStatusText = t(wakeLock.isEnabled ? strings.WAKE_LOCK_STATUS_ENABLED : strings.WAKE_LOCK_STATUS_DISABLED);
-  const languageShortText = i18n.language.substr(0, 2).toUpperCase();
+  const wakeLockLabel = t('wakeLock');
+  const wakeLockStatusLabel = t(wakeLock.isEnabled ? 'enabled' : 'disabled');
+  const languageLabel = t('language');
+  const languageShortLabel = i18n.language.substr(0, 2).toUpperCase();
   
   // Actions
   const closeInstructionsModal = () => setIsInstructionsModalOpen(false);
@@ -83,13 +84,13 @@ function App() {
 
         <Header>
           <HeaderButton
-            icon={<WakeLockIcon size="20" title="Wake Lock" />}
-            text={wakeLockStatusText}
+            icon={<WakeLockIcon size="20" title={wakeLockLabel} />}
+            text={wakeLockStatusLabel}
             onClick={openWakeLockModal}
           />
           <HeaderButton
-            icon={<LanguageIcon size="16" title="Language" />}
-            text={languageShortText}
+            icon={<LanguageIcon size="16" title={languageLabel} />}
+            text={languageShortLabel}
             onClick={openLanguageModal}
           />
         </Header>
