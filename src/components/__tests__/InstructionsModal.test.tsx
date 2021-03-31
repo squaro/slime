@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ModalProvider } from 'styled-react-modal';
-import strings from '../../config/strings';
 import InstructionsModal from '../InstructionsModal';
 
 test("doesn't render the instructions modal", () => {
@@ -13,7 +12,7 @@ test("doesn't render the instructions modal", () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog', { name: strings.INSTRUCTIONS_MODAL_TITLE })).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: 'instructionsModal.title' })).not.toBeInTheDocument();
 });
 
 test('renders the instructions modal with all children', () => {
@@ -26,11 +25,11 @@ test('renders the instructions modal with all children', () => {
     </ModalProvider>
   );
 
-  expect(screen.queryByRole('dialog', { name: strings.INSTRUCTIONS_MODAL_TITLE })).toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: 'instructionsModal.title' })).toBeInTheDocument();
   expect(screen.queryByText(/tap-screen.svg/i)).toBeInTheDocument();
-  expect(screen.queryByText(strings.INSTRUCTIONS_MODAL_TITLE)).toBeInTheDocument();
-  expect(screen.queryByText(strings.INSTRUCTIONS_MODAL_TEXT)).toBeInTheDocument();
-  expect(screen.queryByText(strings.INSTRUCTIONS_MODAL_CLOSE_BUTTON)).toBeInTheDocument();
+  expect(screen.queryByText('instructionsModal.title')).toBeInTheDocument();
+  expect(screen.queryByText('instructionsModal.instructions')).toBeInTheDocument();
+  expect(screen.queryByText('instructionsModal.close')).toBeInTheDocument();
 });
 
 test('calls the onClose callback when the close button is pressed', () => {
@@ -43,7 +42,7 @@ test('calls the onClose callback when the close button is pressed', () => {
     </ModalProvider>
   );
 
-  const closeButton = screen.getByRole('button', { name: strings.INSTRUCTIONS_MODAL_CLOSE_BUTTON });
+  const closeButton = screen.getByRole('button', { name: 'instructionsModal.close' });
   fireEvent.click(closeButton);
   expect(onClose).toHaveBeenCalled();
 });

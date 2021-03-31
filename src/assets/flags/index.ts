@@ -1,13 +1,9 @@
-import enUS from './en-US.png';
-import esES from './es-ES.png';
+import en from './en.png';
+import es from './es.png';
 
-type Flags = {
-  [key: string]: string;
-};
-
-const flags: Flags = {
-  'en-US': enUS,
-  'es-ES': esES,
-};
+const flags = {
+  en,
+  es,
+} as const;
 
 export default flags;
