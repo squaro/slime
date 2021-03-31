@@ -61,7 +61,7 @@ function App() {
   const openWakeLockModal = () => setIsWakeLockModalOpen(true);
 
   // TODO: Move to wakeLock.ts to delegate responsability
-  const enableWakeLock = async (): Promise<void> => {
+  const enableWakeLock = async () => {
     try {
       logger.logInfo('[WakeLock] Locking screen...');
       await wakeLock.enable();
@@ -71,7 +71,7 @@ function App() {
     }
   };
 
-  const start = async (): Promise<void> => {
+  const start = async () => {
     await enableWakeLock();
     closeInstructionsModal();
   };
