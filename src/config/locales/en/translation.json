@@ -1,0 +1,28 @@
+{
+  "close": "Close",
+  "disabled": "Disabled",
+  "enabled": "Enabled",
+  "instructions": "Instructions",
+  "instructionsModal": {
+    "title": "$t(instructions)",
+    "instructions": "Tap <0>anywhere</0> in the screen to change the arrow's direction.",
+    "close": "Got it!"
+  },
+  "lang": {
+    "en-US": "English",
+    "es-ES": "Spanish"
+  },
+  "language": "Language",
+  "languageModal": {
+    "title": "$t(language)",
+    "close": "$t(close)"
+  },
+  "wakeLock": "Wake Lock",
+  "wakeLockModal": {
+    "title": "$t(wakeLock)",
+    "feature": "The Wake Lock feature prevents the device from <0>dimming</0> and <0>locking</0> the screen while using the application.",
+    "phone": "You can determine whether your phone supports this feature or not by looking at the top of the screen.",
+    "support": "If your phone doesn't support the wake lock feature, soon you will be able to report the issue.",
+    "close": "$t(close)"
+  }
+}
