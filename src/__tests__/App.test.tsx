@@ -21,7 +21,7 @@ test('renders the app, prompts the instructions modal and closes it afterward', 
   // TODO: Use dynamic language from i18n config
   // TODO: Use dynamic label based on enabled/disabled
   expect(screen.queryByRole('navigation')).toBeInTheDocument();
-  expect(screen.queryByRole('button', { name: `${'language'} EN` })).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: `${'language'} ${'lang.en'}` })).toBeInTheDocument();
   expect(screen.queryByRole('button', { name: `${'wakeLock'} ${'disabled'}` })).toBeInTheDocument();
   expect(screen.queryByRole('main')).toBeInTheDocument();
   expect(screen.queryByRole('region')).toBeInTheDocument();
@@ -42,7 +42,7 @@ test('renders the app, opens the language modal and closes it afterward', async 
   });
 
   // TODO: Use dynamic language from i18n config
-  const languageHeaderButton = screen.getByRole('button', { name: `${'language'} EN` });
+  const languageHeaderButton = screen.getByRole('button', { name: `${'language'} ${'lang.en'}` });
   act(() => { fireEvent.click(languageHeaderButton); });
   const languageModal = screen.queryByRole('dialog', { name: 'languageModal.title' });
   await waitFor(() => {

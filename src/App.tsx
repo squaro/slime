@@ -52,7 +52,10 @@ function App() {
   const wakeLockLabel = t('wakeLock');
   const wakeLockStatusLabel = t(wakeLock.isEnabled ? 'enabled' : 'disabled');
   const languageLabel = t('language');
-  const languageShortLabel = i18n.language.substr(0, 2).toUpperCase();
+  // Workaround to force current language's type into 'en' or 'es'
+  // TODO: Investigate if there is a way of improving the types
+  const lang = (i18n.language.substring(0, 2) as unknown) as "en" | "es";
+  const languageSelectedLabel = t(`lang.${lang}` as const);
   
   // Actions
   const closeInstructionsModal = () => setIsInstructionsModalOpen(false);
@@ -90,7 +93,7 @@ function App() {
           />
           <HeaderButton
             icon={<LanguageIcon size="16" title={languageLabel} />}
-            text={languageShortLabel}
+            text={languageSelectedLabel}
             onClick={openLanguageModal}
           />
         </Header>
