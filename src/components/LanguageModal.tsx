@@ -4,7 +4,13 @@ import Modal from './Modal';
 import flags from '../assets/flags';
 import { availableLanguages } from '../config/languages';
 import { updateDOMLanguage } from '../utils/i18n';
-import LanguageItem from './LanguageItem';
+
+type Language = {
+  code: string;
+  flag: string;
+  label: string;
+  selected: boolean;
+};
 
 const LanguagesList = styled.div`
   width: 100%;
@@ -14,12 +20,34 @@ const LanguagesList = styled.div`
   padding: 16px 0 24px 0;
 `;
 
-type Language = {
-  code: string;
-  flag: string;
-  label: string;
-  selected: boolean;
-};
+const LanguageItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 24px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #DC7E133D;
+  }
+
+  &[aria-checked="true"] {
+    background-color: #DC7E13;
+  }
+`;
+
+const LanguageItemFlag = styled.img`
+  width: 60px;
+`;
+
+const LanguageItemText = styled.label`
+  margin: 0;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #FFFFFF;
+`;
 
 type LanguageModalProps = {
   isOpen: boolean;
@@ -36,7 +64,7 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
   const primaryColor = '#DC7E13';
   const primaryDarkColor = '#B9701C';
 
-  const languages: Language[] = availableLanguages.map(
+  const languagesList: Language[] = availableLanguages.map(
     (code) => ({
       code,
       flag: flags[code],
@@ -45,9 +73,9 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
     })
   );
 
-  const changeLanguage = async (lang: string) => {
+  const changeLanguage = async (code: string) => {
     // Change i18n language asynchronously
-    await i18n.changeLanguage(lang);
+    await i18n.changeLanguage(code);
 
     // Update DOM language afterward
     updateDOMLanguage(i18n.language);
@@ -63,17 +91,29 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
       titleLabel={titleLabel}
       onClose={onClose}
     >
-      <LanguagesList role="list">
-        {languages.map(({ code, flag, label, selected }: Language) => (
-          <LanguageItem
-            key={code}
-            code={code}
-            flag={flag}
-            label={label}
-            selected={selected}
-            onClick={() => changeLanguage(code)}
-          />
-        ))}
+      <LanguagesList role="radiogroup">
+        {languagesList.map(({ code, flag, label, selected }: Language, index: number) => {
+          return (
+            <LanguageItem
+              key={code}
+              role="radio"
+              aria-checked={selected}
+              aria-labelledby={code}
+              tabIndex={!index ? 0 : -1}
+              onClick={() => changeLanguage(code)}
+            >
+              <LanguageItemFlag
+                aria-hidden="true"
+                src={flag}
+                alt={label}
+                title={label}
+              />
+              <LanguageItemText id={code}>
+                {label}
+              </LanguageItemText>
+            </LanguageItem>
+          );
+        })}
       </LanguagesList>
     </Modal>
   );

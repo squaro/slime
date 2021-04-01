@@ -27,12 +27,12 @@ test('renders the language modal with all available languages', async () => {
   );
 
   expect(screen.queryByRole('dialog', { name: 'languageModal.title' })).toBeInTheDocument();
-  expect(screen.queryByRole('list')).toBeInTheDocument();
+  expect(screen.queryByRole('radiogroup')).toBeInTheDocument();
   expect(screen.queryByText('languageModal.title')).toBeInTheDocument();
   expect(screen.queryByText('languageModal.close')).toBeInTheDocument();
 
   // Verify that all languages are displayed
-  const languageListItems = await screen.findAllByRole('listitem');
+  const languageListItems = await screen.findAllByRole('radio');
   expect(languageListItems.length).toEqual(availableLanguages.length);
 });
 
