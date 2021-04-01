@@ -20,7 +20,11 @@ const LanguagesList = styled.div`
   padding: 16px 0 24px 0;
 `;
 
-const LanguageItem = styled.div`
+type LanguageItemProps = {
+  backgroundSelectedColor: string;
+};
+
+const LanguageItem = styled.div<LanguageItemProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,11 +35,11 @@ const LanguageItem = styled.div`
   outline: 0;
 
   &:hover {
-    background-color: #DC7E133D;
+    background-color: ${({ backgroundSelectedColor }) => `${backgroundSelectedColor}4D`};
   }
 
   &[aria-checked="true"] {
-    background-color: #DC7E13;
+    background-color: ${({ backgroundSelectedColor }) => backgroundSelectedColor};
   }
 `;
 
@@ -101,6 +105,7 @@ function LanguageModal({ isOpen, onClose }: LanguageModalProps) {
               aria-checked={selected}
               aria-labelledby={code}
               tabIndex={!index ? 0 : -1}
+              backgroundSelectedColor={primaryColor}
               onClick={() => changeLanguage(code)}
             >
               <LanguageItemFlag
