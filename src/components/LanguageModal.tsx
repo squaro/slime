@@ -28,6 +28,7 @@ const LanguageItem = styled.div`
   border-radius: 10px;
   padding: 24px 12px;
   cursor: pointer;
+  outline: 0;
 
   &:hover {
     background-color: #DC7E133D;
