@@ -38,7 +38,7 @@ function RoundScreen() {
   return (
     <Wrapper role="region" onClick={toggleDirection}>
       <RoundDirectionArrow role="checkbox" aria-checked={roundDirection}>
-        <SlimSpinArrow title="arrow" />
+        <SlimSpinArrow role="img" />
       </RoundDirectionArrow>
     </Wrapper>
   );
