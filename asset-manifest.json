@@ -1,23 +1,15 @@
 {
   "files": {
-    "main.js": "/slime/static/js/main.fa37041a.chunk.js",
-    "main.js.map": "/slime/static/js/main.fa37041a.chunk.js.map",
-    "runtime-main.js": "/slime/static/js/runtime-main.d4b094f5.js",
-    "runtime-main.js.map": "/slime/static/js/runtime-main.d4b094f5.js.map",
-    "static/js/2.b5bd88a5.chunk.js": "/slime/static/js/2.b5bd88a5.chunk.js",
-    "static/js/2.b5bd88a5.chunk.js.map": "/slime/static/js/2.b5bd88a5.chunk.js.map",
-    "static/js/3.8433e449.chunk.js": "/slime/static/js/3.8433e449.chunk.js",
-    "static/js/3.8433e449.chunk.js.map": "/slime/static/js/3.8433e449.chunk.js.map",
-    "index.html": "/slime/index.html",
+    "main.js": "/slime/static/js/main.5e496295.js",
+    "static/js/651.13432246.chunk.js": "/slime/static/js/651.13432246.chunk.js",
     "service-worker.js": "/slime/service-worker.js",
-    "service-worker.js.map": "/slime/service-worker.js.map",
-    "static/js/2.b5bd88a5.chunk.js.LICENSE.txt": "/slime/static/js/2.b5bd88a5.chunk.js.LICENSE.txt",
-    "static/media/slim-spin-arrow.f22b9f62.svg": "/slime/static/media/slim-spin-arrow.f22b9f62.svg",
-    "static/media/tap-screen.86a98537.svg": "/slime/static/media/tap-screen.86a98537.svg"
+    "static/media/tap-screen.svg": "/slime/static/media/tap-screen.86a9853784d0daf2a800916f97f6abc2.svg",
+    "static/media/slim-spin-arrow.svg": "/slime/static/media/slim-spin-arrow.f22b9f6202ffb209089a40596b79d302.svg",
+    "index.html": "/slime/index.html",
+    "main.5e496295.js.map": "/slime/static/js/main.5e496295.js.map",
+    "651.13432246.chunk.js.map": "/slime/static/js/651.13432246.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.d4b094f5.js",
-    "static/js/2.b5bd88a5.chunk.js",
-    "static/js/main.fa37041a.chunk.js"
+    "static/js/main.5e496295.js"
   ]
 }
