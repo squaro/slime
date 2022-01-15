@@ -53,6 +53,9 @@
     "@types/styled-react-modal": "^1.2.2",
     "semantic-release": "^18.0.1"
   },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
