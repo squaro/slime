@@ -81,33 +81,39 @@ function App() {
   };
 
   return (
-    <Wrapper>
+    <>
       <GlobalStyles />
       <ModalProvider backgroundComponent={ModalBackground}>
+        <Wrapper>
+          <Header>
+            <HeaderButton
+              icon={<WakeLockIcon size="20" title={wakeLockLabel} />}
+              text={wakeLockStatusLabel}
+              onClick={openWakeLockModal}
+            />
+            <HeaderButton
+              icon={<LanguageIcon size="16" title={languageLabel} />}
+              text={languageSelectedLabel}
+              onClick={openLanguageModal}
+            />
+          </Header>
 
-        <Header>
-          <HeaderButton
-            icon={<WakeLockIcon size="20" title={wakeLockLabel} />}
-            text={wakeLockStatusLabel}
-            onClick={openWakeLockModal}
+          <Content>
+            <RoundScreen />
+          </Content>
+
+          <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
+          <LanguageModal
+            isOpen={isLanguageModalOpen}
+            onClose={closeLanguageModal}
           />
-          <HeaderButton
-            icon={<LanguageIcon size="16" title={languageLabel} />}
-            text={languageSelectedLabel}
-            onClick={openLanguageModal}
+          <WakeLockModal
+            isOpen={isWakeLockModalOpen}
+            onClose={closeWakeLockModal}
           />
-        </Header>
-
-        <Content>
-          <RoundScreen />
-        </Content>
-
-        <InstructionsModal isOpen={isInstructionsModalOpen} onClose={start} />
-        <LanguageModal isOpen={isLanguageModalOpen} onClose={closeLanguageModal} />
-        <WakeLockModal isOpen={isWakeLockModalOpen} onClose={closeWakeLockModal} />
-
+        </Wrapper>
       </ModalProvider>
-    </Wrapper>
+    </>
   );
 }
 
